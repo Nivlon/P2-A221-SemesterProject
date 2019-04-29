@@ -10,4 +10,14 @@ public class CategorizedList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categorized_list);
     }
+
+    public int getCategoryIndex() {
+        return categoryIndex;
+    }
+
+    public void setCategoryIndex(int categoryIndex) {
+        this.categoryIndex = categoryIndex;
+    }
+
+    int categoryIndex;
 }

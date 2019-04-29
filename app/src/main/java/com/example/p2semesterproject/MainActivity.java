@@ -1,5 +1,6 @@
 package com.example.p2semesterproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,22 +14,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 // Capture our button from layout
-        Button fruitVegBut = findViewById(R.id.corky);
-        Button meatBut = findViewById(R.id.corky2);
-        Button DairyBut = findViewById(R.id.corky3);
+        Button fruitVegBut = findViewById(R.id.fruitVegetable_category);
+        Button meatBut = findViewById(R.id.meat_category);
+        Button DairyBut = findViewById(R.id.dairy_category);
         // Register the onClick listener with the implementation above
-        fruitVegBut.setOnClickListener(mCorkyListener);
-        meatBut.setOnClickListener(mCorkyListener);
-        DairyBut.setOnClickListener(mCorkyListener);
+        fruitVegBut.setOnClickListener(categoryButtonListener);
+        meatBut.setOnClickListener(categoryButtonListener);
+        DairyBut.setOnClickListener(categoryButtonListener);
 
     }
 
     // Create an anonymous implementation of OnClickListener
-    private View.OnClickListener mCorkyListener = new View.OnClickListener() {
+    private View.OnClickListener categoryButtonListener = new View.OnClickListener() {
         public void onClick(View v) {
             // do something when the button is clicked
             // Yes we will handle click here but which button clicked??? We don't know
-
+            Intent intent=new Intent(this,CategorizedList.class);
+            startActivity(intent);
             // So we will make
             switch (v.getId() /*to get clicked view id**/) {
                 case R.id.corky:
