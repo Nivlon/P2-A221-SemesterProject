@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-// Capture button from layout
+        // Capture button from layout
         Button fruitVegBut = findViewById(R.id.fruitVegetable_category);
         Button meatBut = findViewById(R.id.meat_category);
         Button DairyBut = findViewById(R.id.dairy_category);
@@ -31,13 +31,15 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener categoryButtonListener = new View.OnClickListener() {
         public void onClick(View v) {
             // do something when the button is clicked
-            // Which button clicked?
+
+            //Go to list activity (screen)
             Intent intent=new Intent(getApplicationContext(),CategorizedList.class);
             startActivity(intent);
 
+            // Which button clicked?
             switch (v.getId() /*to get clicked view id**/) {
                 case R.id.fruitVegetable_category:
-                    CategorizedList.setCategoryIndex(1);
+                    CategorizedList.setCategoryIndex(0);
 
                     // do something when the vegetable is clicked
 
@@ -49,13 +51,13 @@ public class MainActivity extends AppCompatActivity {
 
                     break;
                 case R.id.dairy_category:
-                    CategorizedList.setCategoryIndex(3);
+                    CategorizedList.setCategoryIndex(1);
 
                     // do something when the dairy is clicked
 
                     break;
                 case R.id.baked_category:
-                    CategorizedList.setCategoryIndex(3);
+                    CategorizedList.setCategoryIndex(4);
 
                     // do something when the baked is clicked
 
