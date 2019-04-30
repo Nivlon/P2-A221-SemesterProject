@@ -11,7 +11,8 @@ public class CategorizedList extends AppCompatActivity {
         setContentView(R.layout.activity_categorized_list);
     }
 
-    public int getCategoryIndex() {
+
+    public int getCategoryIndex() {   //Index of categories
         return categoryIndex;
     }
 
