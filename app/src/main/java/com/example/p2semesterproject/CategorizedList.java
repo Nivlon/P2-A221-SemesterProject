@@ -15,9 +15,9 @@ public class CategorizedList extends AppCompatActivity {
         return categoryIndex;
     }
 
-    public void setCategoryIndex(int categoryIndex) {
-        this.categoryIndex = categoryIndex;
+    public static void setCategoryIndex(int _categoryIndex) {
+        categoryIndex = _categoryIndex;
     }
 
-    int categoryIndex;
+   static int categoryIndex;
 }

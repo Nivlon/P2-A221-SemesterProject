@@ -29,21 +29,24 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             // do something when the button is clicked
             // Yes we will handle click here but which button clicked??? We don't know
-            Intent intent=new Intent(this,CategorizedList.class);
+            Intent intent=new Intent(getApplicationContext(),CategorizedList.class);
             startActivity(intent);
             // So we will make
             switch (v.getId() /*to get clicked view id**/) {
-                case R.id.corky:
+                case R.id.fruitVegetable_category:
+                    CategorizedList.setCategoryIndex(1);
 
                     // do something when the corky is clicked
 
                     break;
-                case R.id.corky2:
+                case R.id.meat_category:
+                    CategorizedList.setCategoryIndex(2);
 
                     // do something when the corky2 is clicked
 
                     break;
-                case R.id.corky3:
+                case R.id.dairy_category:
+                    CategorizedList.setCategoryIndex(3);
 
                     // do something when the corky3 is clicked
 
