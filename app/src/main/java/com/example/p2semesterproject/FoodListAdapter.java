@@ -36,7 +36,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
     @Override
     public FoodListAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
-        TextView v = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_categorized_list, parent, false);
+        TextView v= (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.my_text_view, parent, false);
         return new MyViewHolder(v);
     }
 
@@ -45,7 +45,10 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.textView.setText(foodListData[position]);
+        for(int i=0;i<foodListData.length;i++) {
+            holder.textView.setText(foodListData[position]);
+        }
+
 
     }
 
