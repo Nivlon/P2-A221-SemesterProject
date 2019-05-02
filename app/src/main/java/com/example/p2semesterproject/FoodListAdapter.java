@@ -3,6 +3,7 @@ package com.example.p2semesterproject;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -12,12 +13,17 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView textView;
-        public MyViewHolder(TextView v) {
-            super(v);
-            textView = v;
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView name, email, mobileNo;// init the item view's
+
+        public MyViewHolder(View itemView) {
+            super(itemView);
+
+            // get the reference of item view's
+            name = itemView.findViewById(R.id.name);
+            email = itemView.findViewById(R.id.email);
+            mobileNo = itemView.findViewById(R.id.mobileNo);
+
         }
     }
 
@@ -27,16 +33,11 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
     }
 
     // Create new views (invoked by the layout manager)
-    /*@Override
-    public MyViewHolder onCreateViewHolder() {
-    }*/
-
-    // Create new views (invoked by the layout manager)
     @NonNull
     @Override
     public FoodListAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
-        TextView v= (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.my_text_view, parent, false);
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.my_card_view, parent, false);
         return new MyViewHolder(v);
     }
 
@@ -46,7 +47,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         for(int i=0;i<foodListData.length;i++) {
-            holder.textView.setText(foodListData[position]);
+            holder.name.setText(foodListData[position]);
         }
 
 

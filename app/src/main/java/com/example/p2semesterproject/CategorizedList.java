@@ -20,7 +20,7 @@ public class CategorizedList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categorized_list);
         recyclerView=findViewById(R.id.foodList);
-        recyclerView.setHasFixedSize(true); //for performance (I don't know what it does)
+        //recyclerView.setHasFixedSize(true); //for performance (I don't know what it does)
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         listAdapter =new FoodListAdapter(foodListData[categoryIndex]);
