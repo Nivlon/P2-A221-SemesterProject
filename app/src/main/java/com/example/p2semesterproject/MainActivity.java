@@ -14,16 +14,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Capture button from layout
-        Button fruitVegBut = findViewById(R.id.fruitVegetable_category);
+        Button fruitBut = findViewById(R.id.fruit_category);
         Button meatBut = findViewById(R.id.meat_category);
-        Button DairyBut = findViewById(R.id.dairy_category);
-        Button BakedBut = findViewById(R.id.baked_category);
+        Button dairyBut = findViewById(R.id.dairy_category);
+        Button bakedBut = findViewById(R.id.baked_category);
+        Button vegBut = findViewById(R.id.veg_category);
 
         // Register the onClick listener with the implementation above
-        fruitVegBut.setOnClickListener(categoryButtonListener);
+        fruitBut.setOnClickListener(categoryButtonListener);
         meatBut.setOnClickListener(categoryButtonListener);
-        DairyBut.setOnClickListener(categoryButtonListener);
-        BakedBut.setOnClickListener(categoryButtonListener);
+        dairyBut.setOnClickListener(categoryButtonListener);
+        bakedBut.setOnClickListener(categoryButtonListener);
+        vegBut.setOnClickListener(categoryButtonListener);
     }
 
     // Create an anonymous implementation of OnClickListener
@@ -37,12 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
             // Which button clicked?
             switch (v.getId() /*to get clicked view id**/) {
-                case R.id.fruitVegetable_category:
+                case R.id.fruit_category:
                     CategorizedList.setCategoryIndex(0);
                     // do something when the vegetable is clicked
                     break;
                 case R.id.meat_category:
-                    CategorizedList.setCategoryIndex(2);
+                    CategorizedList.setCategoryIndex(3);
                     // do something when the meat is clicked
                     break;
                 case R.id.dairy_category:
@@ -50,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
                     // do something when the dairy is clicked
                     break;
                 case R.id.baked_category:
+                    CategorizedList.setCategoryIndex(2);
+                    // do something when the baked is clicked
+                    break;
+                case R.id.veg_category:
                     CategorizedList.setCategoryIndex(4);
                     // do something when the baked is clicked
                     break;

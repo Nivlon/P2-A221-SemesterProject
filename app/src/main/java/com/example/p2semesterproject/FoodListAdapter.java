@@ -21,8 +21,6 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
 
             // get the reference of item view's
             name = itemView.findViewById(R.id.name);
-            email = itemView.findViewById(R.id.email);
-            mobileNo = itemView.findViewById(R.id.mobileNo);
 
         }
     }

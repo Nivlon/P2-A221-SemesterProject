@@ -7,8 +7,8 @@ import android.support.v7.widget.RecyclerView;
 
 public class CategorizedList extends AppCompatActivity {
 
-    private String[][] foodListData={{"Apple","Banana","Apple","Banana","Apple","Banana","Apple","Banana","Apple","Banana","Apple","Banana"
-    },{"Milk","Butter"}};
+    private String[][] foodListData={{"Apple","Banana","Grapes","Kiwi","Melon","Orange","Pear","Raspberry","Strawberry","Watermelon"
+    },{"Butter","Cheese","Eggs","Milk","Yogurt"},{"Rye bread","White bread"},{"Beef","Chicken","Fish","Pork"},{"Bell pepper","Cabbage","Corn","Cucumber","Garlic","Iceberg","Onion","Potato","Tomato"}};
 
     private static int categoryIndex;
 

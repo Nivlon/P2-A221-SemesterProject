@@ -9,10 +9,22 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/fruitVegetable_category"
+        android:id="@+id/veg_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fruits &amp; Vegetables"
+        android:text="Vegetables"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.576" />
+
+    <Button
+        android:id="@+id/fruit_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fruits"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -30,7 +42,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571" />
+        app:layout_constraintVertical_bias="0.856" />
 
     <Button
         android:id="@+id/meat_category"
@@ -54,7 +66,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.774" />
+        app:layout_constraintVertical_bias="0.765" />
 
     <android.support.v7.widget.CardView
         android:layout_width="300dp"
