@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
             // do something when the button is clicked
 
             //Go to list activity (screen)
-            Intent intent=new Intent(getApplicationContext(),CategorizedList.class);
-            startActivity(intent);
+            startActivity(new Intent(getApplicationContext(),CategorizedList.class));
 
             // Which button clicked?
             switch (v.getId() /*to get clicked view id**/) {
