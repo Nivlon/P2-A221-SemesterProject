@@ -1,36 +1,25 @@
 package com.example.p2semesterproject;
 
-
+import android.graphics.drawable.Drawable;
 
 public class FoodObject {
 
     private String name;
-    static String[] storageSpaces={"Fridge","Freezer","Cabinet"};
-    private int[] storageTime=new int[storageSpaces.length];
+    //static String[] storageSpaces={"Fridge","Freezer","Cabinet"};
+    //private int[] storageTime=new int[storageSpaces.length];
+    private Drawable icon;
 
-    FoodObject(String _name) {
+    FoodObject(String _name, Drawable _icon) {
         name=_name;
+        icon=_icon;
     }
 
-    FoodObject(String _name,int[] _storageTime) {
-        name=_name;
-        storageTime=_storageTime;
-    }
+    public String getName() { return name; }
 
-    public String getName() {
-        return name;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public Drawable getIcon() { return icon; }
 
-    public int[] getStorageTime() {
-        return storageTime;
-    }
-
-    public void setStorageTime(int[] storageTime) {
-        this.storageTime = storageTime;
-    }
+    public void setIcon(Drawable icon) { this.icon = icon; }
 
 }

@@ -11,8 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyViewHolder> {
-    private String[] foodListData;
-    private Drawable[] foodImage;
+    private FoodObject[] foodData;
 
 
     // Provide a reference to the views for each data item
@@ -32,9 +31,8 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public FoodListAdapter(String[] _foodListData, Drawable[] _foodImage) {
-        foodListData = _foodListData;
-        foodImage = _foodImage;
+    public FoodListAdapter(FoodObject[] _foodData) {
+        foodData = _foodData;
     }
 
     // Create new views (invoked by the layout manager)
@@ -51,8 +49,8 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.name.setText(foodListData[position]);
-        holder.imageOne.setImageDrawable(foodImage[position]);
+        holder.name.setText(foodData[position].getName());
+        holder.imageOne.setImageDrawable(foodData[position].getIcon());
 
 
     }
@@ -60,7 +58,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return foodListData.length;
+        return foodData.length;
     }
 }
 
