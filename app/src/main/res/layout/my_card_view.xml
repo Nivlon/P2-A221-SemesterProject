@@ -29,12 +29,10 @@
             items for a single row of RecyclerView
             -->
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/foodImage"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:background="@drawable/cow"
-                tools:srcCompat="@drawable/cow" />
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:id="@+id/name"
