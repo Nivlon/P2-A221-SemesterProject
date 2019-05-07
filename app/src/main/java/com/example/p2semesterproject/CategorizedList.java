@@ -60,11 +60,11 @@ public class CategorizedList extends AppCompatActivity {
                     MakeFoodObject("Grapes",R.drawable.grape),
                     MakeFoodObject("Kiwi",R.drawable.kiwi),
                     MakeFoodObject("Melon",R.drawable.melon),
-                    MakeFoodObject("Orange"),
-                    MakeFoodObject("Pear"),
-                    MakeFoodObject("Raspberry"),
-                    MakeFoodObject("Strawberry"),
-                    MakeFoodObject("Watermelon"),
+                    MakeFoodObject("Orange",R.drawable.orange),
+                    MakeFoodObject("Pear",R.drawable.pear),
+                    MakeFoodObject("Raspberry",R.drawable.raspberry),
+                    MakeFoodObject("Strawberry",R.drawable.strawberry),
+                    MakeFoodObject("Watermelon",R.drawable.watermelon),
                     MakeFoodObject("Lemon",R.drawable.lemon)
                 };
         foodData[1]=
@@ -74,13 +74,13 @@ public class CategorizedList extends AppCompatActivity {
                     MakeFoodObject("Cheese",R.drawable.cheese),
                     MakeFoodObject("Eggs"),
                     MakeFoodObject("Milk"),
-                    MakeFoodObject("Yogurt")
+                    MakeFoodObject("Yogurt",R.drawable.yogurt),
                 };
         foodData[2]=
                 //Baked goods
                 new FoodObject[]{
                     MakeFoodObject("White Bread",R.drawable.bread),
-                    MakeFoodObject("Rye Bread")
+                    MakeFoodObject("Rye Bread",R.drawable.ryebread),
                 };
         foodData[3]=
                 //Meat
@@ -88,23 +88,22 @@ public class CategorizedList extends AppCompatActivity {
                     MakeFoodObject("Beef",R.drawable.beef),
                     MakeFoodObject("Chicken",R.drawable.chicken),
                     MakeFoodObject("Fish",R.drawable.fish),
-                    MakeFoodObject("Pork")
+                    MakeFoodObject("Pork",R.drawable.pork),
                 };
         foodData[4]=
                 //Vegetables
                 new FoodObject[]{
-                    MakeFoodObject("Bell Pepper"),
+                    MakeFoodObject("Bell Pepper",R.drawable.bellpep),
                     MakeFoodObject("Cabbage",R.drawable.cabbage),
                     MakeFoodObject("Carrot",R.drawable.carrot),
                     MakeFoodObject("Chili",R.drawable.chilli),
                     MakeFoodObject("Corn",R.drawable.corn),
-                    MakeFoodObject("Cucumber"),
+                    MakeFoodObject("Cucumber",R.drawable.cucumb),
                     MakeFoodObject("Garlic",R.drawable.garlic),
-                    MakeFoodObject("Iceberg"),
-                    MakeFoodObject("Onion"),
-                    MakeFoodObject("Potato"),
-                    MakeFoodObject("Tomato"),
-                    MakeFoodObject("Lettuce",R.drawable.lettuce)
+                    MakeFoodObject("Onion",R.drawable.onion),
+                    MakeFoodObject("Potato",R.drawable.potatoes),
+                    MakeFoodObject("Tomato",R.drawable.tomato),
+                    MakeFoodObject("Lettuce",R.drawable.lettuce),
                 };
         recyclerView=findViewById(R.id.foodList);
         lemonPic=res.getDrawable(R.drawable.lemon, getTheme());
