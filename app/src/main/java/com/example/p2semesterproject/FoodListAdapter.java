@@ -23,6 +23,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
         TextView name;// init the item view's
         ImageView imageOne;
         Button infoButton;
+        FoodObject foodItem;
         public MyViewHolder(View itemView) {
             super(itemView);
 
@@ -38,9 +39,8 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
 
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public FoodListAdapter(FoodObject[] _foodData, View.OnClickListener _infoButt) {
+    public FoodListAdapter(FoodObject[] _foodData) {
         foodData = _foodData;
-        infoButt = _infoButt;
     }
 
     // Create new views (invoked by the layout manager)
@@ -59,7 +59,6 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
         // - replace the contents of the view with that element
         holder.name.setText(foodData[position].getName());
         holder.imageOne.setImageDrawable(foodData[position].getIcon());
-        holder.infoButton.setOnClickListener(infoButt);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

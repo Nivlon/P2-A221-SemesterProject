@@ -1,6 +1,8 @@
 package com.example.p2semesterproject;
 
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Create an anonymous implementation of OnClickListener
     private View.OnClickListener categoryButtonListener = new View.OnClickListener() {
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void onClick(View v) {
             // do something when the button is clicked
 

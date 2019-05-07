@@ -14,7 +14,7 @@
 
         <Button
             android:id="@+id/infoButton"
-            android:layout_width="301dp"
+            android:layout_width="285dp"
             android:layout_height="match_parent"
             android:layout_weight="0"
             android:alpha="0"

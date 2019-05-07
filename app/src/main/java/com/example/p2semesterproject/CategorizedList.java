@@ -1,15 +1,19 @@
 package com.example.p2semesterproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -19,14 +23,53 @@ public class CategorizedList extends AppCompatActivity {
 
     public static Drawable lemonPic;
 
-    public View.OnClickListener infoButtonListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            startActivity(new Intent(getApplicationContext(), InfoScreen.class));
-        }
-    };
+    public interface ClickListener {
+        void onClick(View view, int position);
 
-    public View.OnClickListener getInfButtListener() {
-        return infoButtonListener;
+        void onLongClick(View view, int position);
+    }
+
+    static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
+
+        private GestureDetector gestureDetector;
+        private ClickListener clickListener;
+
+        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ClickListener clickListener) {
+            this.clickListener = clickListener;
+            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                }
+
+                @Override
+                public void onLongPress(MotionEvent e) {
+                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
+                    if (child != null && clickListener != null) {
+                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
+                    }
+                }
+            });
+        }
+
+        @Override
+        public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            View child = rv.findChildViewUnder(e.getX(), e.getY());
+            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
+                clickListener.onClick(child, rv.getChildPosition(child));
+            }
+            return false;
+        }
+
+        @Override
+        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+        }
+
+        @Override
+        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+        }
     }
 
     private static int categoryIndex;
@@ -41,13 +84,6 @@ public class CategorizedList extends AppCompatActivity {
 
     private static FoodObject[][] foodData;
 
-    private String[][] foodListData={{"Apple","Banana","Grapes","Kiwi","Melon","Orange","Pear","Raspberry","Strawberry","Water melon"},
-            {"Butter","Cheese","Eggs","Milk","Yogurt"},
-            {"Rye bread","White bread"},
-            {"Beef","Chicken","Fish","Pork"},
-            {"Bell pepper","Cabbage","Corn","Cucumber","Garlic","Iceberg","Onion","Potato","Tomato"}};
-
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -61,7 +97,7 @@ public class CategorizedList extends AppCompatActivity {
                 {
                     new FoodObject("Apple"),
                     new FoodObject("Banana"),
-                    new FoodObject("Grapes",res.getDrawable(R.drawable.grape, getTheme())),
+                    new FoodObject("Grapes",res.getDrawable(R.drawable.grape)),
                     new FoodObject("Kiwi",res.getDrawable(R.drawable.kiwi, getTheme())),
                     new FoodObject("Melon",res.getDrawable(R.drawable.melon, getTheme())),
                     new FoodObject("Orange",res.getDrawable(R.drawable.orange, getTheme())),
@@ -113,8 +149,20 @@ public class CategorizedList extends AppCompatActivity {
         recyclerView.setHasFixedSize(true); //for performance (I don't know what it does)
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        listAdapter =new FoodListAdapter(foodData[categoryIndex], infoButtonListener);
+        listAdapter =new FoodListAdapter(foodData[categoryIndex]);
         recyclerView.setAdapter(listAdapter);
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
+
+            @Override
+            public void onClick(View view, int position) {
+                startActivity(new Intent(getApplicationContext(),InfoScreen.class));
+                InfoScreen.setFoodItem(foodData[categoryIndex][position]);
+            }
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
 
     }
 
