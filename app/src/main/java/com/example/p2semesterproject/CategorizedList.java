@@ -1,5 +1,6 @@
 package com.example.p2semesterproject;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class CategorizedList extends AppCompatActivity {
@@ -16,6 +18,16 @@ public class CategorizedList extends AppCompatActivity {
     public static Resources res;
 
     public static Drawable lemonPic;
+
+    public View.OnClickListener infoButtonListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            startActivity(new Intent(getApplicationContext(), InfoScreen.class));
+        }
+    };
+
+    public View.OnClickListener getInfButtListener() {
+        return infoButtonListener;
+    }
 
     private static int categoryIndex;
 
@@ -93,14 +105,19 @@ public class CategorizedList extends AppCompatActivity {
                     new FoodObject("Tomato",res.getDrawable(R.drawable.tomato, getTheme())),
                     new FoodObject("Lettuce",res.getDrawable(R.drawable.lettuce, getTheme()))
                 }};
+
+
+
         recyclerView=findViewById(R.id.foodList);
         lemonPic=res.getDrawable(R.drawable.lemon, getTheme());
         recyclerView.setHasFixedSize(true); //for performance (I don't know what it does)
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        listAdapter =new FoodListAdapter(foodData[categoryIndex]);
+        listAdapter =new FoodListAdapter(foodData[categoryIndex], infoButtonListener);
         recyclerView.setAdapter(listAdapter);
 
     }
+
+
 
 }

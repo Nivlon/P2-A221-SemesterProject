@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/infoButton"
             android:layout_width="301dp"
             android:layout_height="match_parent"
             android:layout_weight="0"
