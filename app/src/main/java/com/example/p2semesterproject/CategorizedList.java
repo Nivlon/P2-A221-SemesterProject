@@ -23,14 +23,6 @@ public class CategorizedList extends AppCompatActivity {
     private FoodListAdapter listAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    private FoodObject MakeFoodObject(String name) {
-        return MakeFoodObject(name);
-    }
-
-    private FoodObject MakeFoodObject(String name, int ID) {
-        return new FoodObject(name,res.getDrawable(ID, getTheme()));
-    }
-
     public static void setCategoryIndex(int _categoryIndex) {
         categoryIndex = _categoryIndex;
     }
@@ -52,60 +44,55 @@ public class CategorizedList extends AppCompatActivity {
         setContentView(R.layout.activity_categorized_list);
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         res = getResources();
-        foodData[0]=
+        foodData=new FoodObject[][]{
                 //Fruit
-                new FoodObject[]{
-                    MakeFoodObject("Apple"),
-                    MakeFoodObject("Banana"),
-                    MakeFoodObject("Grapes",R.drawable.grape),
-                    MakeFoodObject("Kiwi",R.drawable.kiwi),
-                    MakeFoodObject("Melon",R.drawable.melon),
-                    MakeFoodObject("Orange"),
-                    MakeFoodObject("Pear"),
-                    MakeFoodObject("Raspberry"),
-                    MakeFoodObject("Strawberry"),
-                    MakeFoodObject("Watermelon"),
-                    MakeFoodObject("Lemon",R.drawable.lemon)
-                };
-        foodData[1]=
+                {
+                    new FoodObject("Apple"),
+                    new FoodObject("Banana"),
+                    new FoodObject("Grapes",res.getDrawable(R.drawable.grape, getTheme())),
+                    new FoodObject("Kiwi",res.getDrawable(R.drawable.kiwi, getTheme())),
+                    new FoodObject("Melon",res.getDrawable(R.drawable.melon, getTheme())),
+                    new FoodObject("Orange",res.getDrawable(R.drawable.orange, getTheme())),
+                    new FoodObject("Pear",res.getDrawable(R.drawable.pear, getTheme())),
+                    new FoodObject("Raspberry",res.getDrawable(R.drawable.raspberry, getTheme())),
+                    new FoodObject("Strawberry",res.getDrawable(R.drawable.strawberry, getTheme())),
+                    new FoodObject("Watermelon",res.getDrawable(R.drawable.watermelon, getTheme())),
+                    new FoodObject("Lemon",res.getDrawable(R.drawable.lemon, getTheme()))
+                },
                 //Dairy and Eggs
-                new FoodObject[]{
-                    MakeFoodObject("Butter",R.drawable.butter),
-                    MakeFoodObject("Cheese",R.drawable.cheese),
-                    MakeFoodObject("Eggs"),
-                    MakeFoodObject("Milk"),
-                    MakeFoodObject("Yogurt")
-                };
-        foodData[2]=
+                {
+                    new FoodObject("Butter",res.getDrawable(R.drawable.butter, getTheme())),
+                    new FoodObject("Cheese",res.getDrawable(R.drawable.cheese, getTheme())),
+                    new FoodObject("Eggs"),
+                    new FoodObject("Milk"),
+                    new FoodObject("Yogurt",res.getDrawable(R.drawable.yogurt, getTheme()))
+                },
                 //Baked goods
-                new FoodObject[]{
-                    MakeFoodObject("White Bread",R.drawable.bread),
-                    MakeFoodObject("Rye Bread")
-                };
-        foodData[3]=
+                {
+                    new FoodObject("White Bread",res.getDrawable(R.drawable.bread, getTheme())),
+                    new FoodObject("Rye Bread",res.getDrawable(R.drawable.ryebread,getTheme()))
+                },
                 //Meat
-                new FoodObject[]{
-                    MakeFoodObject("Beef",R.drawable.beef),
-                    MakeFoodObject("Chicken",R.drawable.chicken),
-                    MakeFoodObject("Fish",R.drawable.fish),
-                    MakeFoodObject("Pork")
-                };
-        foodData[4]=
+                {
+                    new FoodObject("Beef",res.getDrawable(R.drawable.beef, getTheme())),
+                    new FoodObject("Chicken",res.getDrawable(R.drawable.chicken, getTheme())),
+                    new FoodObject("Fish",res.getDrawable(R.drawable.fish, getTheme())),
+                    new FoodObject("Pork",res.getDrawable(R.drawable.pork, getTheme()))
+                },
                 //Vegetables
-                new FoodObject[]{
-                    MakeFoodObject("Bell Pepper"),
-                    MakeFoodObject("Cabbage",R.drawable.cabbage),
-                    MakeFoodObject("Carrot",R.drawable.carrot),
-                    MakeFoodObject("Chili",R.drawable.chilli),
-                    MakeFoodObject("Corn",R.drawable.corn),
-                    MakeFoodObject("Cucumber"),
-                    MakeFoodObject("Garlic",R.drawable.garlic),
-                    MakeFoodObject("Iceberg"),
-                    MakeFoodObject("Onion"),
-                    MakeFoodObject("Potato"),
-                    MakeFoodObject("Tomato"),
-                    MakeFoodObject("Lettuce",R.drawable.lettuce)
-                };
+                {
+                    new FoodObject("Bell Pepper"),
+                    new FoodObject("Cabbage",res.getDrawable(R.drawable.cabbage, getTheme())),
+                    new FoodObject("Carrot",res.getDrawable(R.drawable.carrot, getTheme())),
+                    new FoodObject("Chili",res.getDrawable(R.drawable.chilli, getTheme())),
+                    new FoodObject("Corn",res.getDrawable(R.drawable.corn, getTheme())),
+                    new FoodObject("Cucumber"),
+                    new FoodObject("Garlic",res.getDrawable(R.drawable.garlic, getTheme())),
+                    new FoodObject("Onion",res.getDrawable(R.drawable.onion, getTheme())),
+                    new FoodObject("Potato",res.getDrawable(R.drawable.potatoes, getTheme())),
+                    new FoodObject("Tomato",res.getDrawable(R.drawable.tomato, getTheme())),
+                    new FoodObject("Lettuce",res.getDrawable(R.drawable.lettuce, getTheme()))
+                }};
         recyclerView=findViewById(R.id.foodList);
         lemonPic=res.getDrawable(R.drawable.lemon, getTheme());
         recyclerView.setHasFixedSize(true); //for performance (I don't know what it does)
