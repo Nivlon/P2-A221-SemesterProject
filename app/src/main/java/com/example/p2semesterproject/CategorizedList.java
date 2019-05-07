@@ -81,12 +81,12 @@ public class CategorizedList extends AppCompatActivity {
                 },
                 //Vegetables
                 {
-                    new FoodObject("Bell Pepper"),
+                    new FoodObject("Bell Pepper",res.getDrawable(R.drawable.bellpep, getTheme())),
                     new FoodObject("Cabbage",res.getDrawable(R.drawable.cabbage, getTheme())),
                     new FoodObject("Carrot",res.getDrawable(R.drawable.carrot, getTheme())),
                     new FoodObject("Chili",res.getDrawable(R.drawable.chilli, getTheme())),
                     new FoodObject("Corn",res.getDrawable(R.drawable.corn, getTheme())),
-                    new FoodObject("Cucumber"),
+                    new FoodObject("Cucumber",res.getDrawable(R.drawable.cucumb, getTheme())),
                     new FoodObject("Garlic",res.getDrawable(R.drawable.garlic, getTheme())),
                     new FoodObject("Onion",res.getDrawable(R.drawable.onion, getTheme())),
                     new FoodObject("Potato",res.getDrawable(R.drawable.potatoes, getTheme())),
