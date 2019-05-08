@@ -30,8 +30,8 @@
             -->
             <ImageView
                 android:id="@+id/foodImage"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center_vertical" />
 
             <TextView
@@ -45,13 +45,11 @@
 
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="20dp"
-                android:layout_height="17dp"
+                android:id="@+id/storageImage"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
-                android:background="@drawable/cow"
-                android:foregroundGravity="center"
-                tools:srcCompat="@drawable/cow" />
+                android:foregroundGravity="center" />
 
             <TextView
                 android:id="@+id/time"
@@ -66,7 +64,9 @@
             <ToggleButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="pin" />
+                android:text="pin"
+                android:textOff="Pin"
+                android:textOn="Unpin" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </ScrollView>

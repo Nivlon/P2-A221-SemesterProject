@@ -1,5 +1,6 @@
 package com.example.p2semesterproject;
 
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ public class InfoScreen extends AppCompatActivity {
 
     static FoodObject foodItem;
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,13 @@ public class InfoScreen extends AppCompatActivity {
         setContentView(R.layout.activity_info_screen);
         TextView foodName = findViewById(R.id.foodName);
         ImageView foodImage = findViewById(R.id.foodImage);
+        ImageView storageImage=findViewById(R.id.storageImage);
         foodName.setText(foodItem.getName());
-        //foodImage.setBackground(CategorizedList.lemonPic);
+        foodImage.setImageDrawable(foodItem.getIcon());
+        storageImage.setImageDrawable(foodItem.getStorage());
+
+        if (foodItem.getStorage()==CategorizedList.counterPic) {
+            foodImage.setTranslationY(-490);
+        }
     }
 }

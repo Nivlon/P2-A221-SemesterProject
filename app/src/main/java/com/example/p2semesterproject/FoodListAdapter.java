@@ -24,12 +24,14 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
         ImageView imageOne;
         Button infoButton;
         FoodObject foodItem;
+        ImageView storageImage;
         public MyViewHolder(View itemView) {
             super(itemView);
 
             // get the reference of item view's
             name = itemView.findViewById(R.id.name);
             imageOne = itemView.findViewById(R.id.foodImage);
+            storageImage = itemView.findViewById(R.id.storageImage);
             infoButton = itemView.findViewById(R.id.infoButton);
 
 
@@ -59,6 +61,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
         // - replace the contents of the view with that element
         holder.name.setText(foodData[position].getName());
         holder.imageOne.setImageDrawable(foodData[position].getIcon());
+        holder.storageImage.setImageDrawable(foodData[position].getStorage());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
