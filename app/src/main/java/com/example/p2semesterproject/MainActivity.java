@@ -15,6 +15,16 @@ public class MainActivity extends AppCompatActivity {
 
     public static TextView quizText;
     public static FoodObject quizFood;
+    public static boolean isCreated = false;
+
+    @Override
+
+    protected void onResume() {
+        super.onResume();
+        if(isCreated)
+            MainActivity.quizGenerator(CategorizedList.foodData[0][5]);
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override

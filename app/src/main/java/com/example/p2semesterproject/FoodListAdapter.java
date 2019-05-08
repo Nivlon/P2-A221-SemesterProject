@@ -34,7 +34,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
             imageOne = itemView.findViewById(R.id.foodImage);
             storageImage = itemView.findViewById(R.id.storageImage);
             infoButton = itemView.findViewById(R.id.infoButton);
-            storageImage = itemView.findViewById(R.id.time);
+            storageTime = itemView.findViewById(R.id.time);
 
         }
     }

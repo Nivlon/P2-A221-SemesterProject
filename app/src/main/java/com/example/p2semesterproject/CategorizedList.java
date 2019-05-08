@@ -33,6 +33,8 @@ public class CategorizedList extends AppCompatActivity {
     public static boolean isPinPress;
     public static int pinYPosition=400;
 
+
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +92,7 @@ public class CategorizedList extends AppCompatActivity {
                     new FoodObject("Tomato",res.getDrawable(R.drawable.tomato),"Counter"),
                     new FoodObject("Lettuce",res.getDrawable(R.drawable.lettuce),"Fridge")
                 }};
+        MainActivity.isCreated = true;
 
         recyclerView=findViewById(R.id.foodList);
         recyclerView.setHasFixedSize(true); //for performance (I don't know what it does)
@@ -115,7 +118,6 @@ public class CategorizedList extends AppCompatActivity {
             }
         }));
 
-        MainActivity.quizGenerator(foodData[0][5]);
     }
 
     public static void setCategoryIndex(int _categoryIndex) {
