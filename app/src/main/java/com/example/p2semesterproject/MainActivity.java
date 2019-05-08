@@ -13,7 +13,8 @@ import android.widget.TextView;
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class MainActivity extends AppCompatActivity {
 
-    private static TextView quizText;
+    public static TextView quizText;
+    public static FoodObject quizFood;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -52,34 +53,40 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener quizButtonListener = new View.OnClickListener(){
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void onClick(View v){
-
-            TextView newText;
-
-            switch(v.getId()){
-                case R.id.button:
-                    newText = (TextView)findViewById(R.id.textView2);
-                    newText.setText(Integer.toString(R.id.button));
-                    break;
-
-                case R.id.button2:
-                    newText = (TextView)findViewById(R.id.textView2);
-                    newText.setText(Integer.toString(R.id.button2));
-                    break;
-
-                case R.id.button3:
-                    newText = (TextView)findViewById(R.id.textView2);
-                    newText.setText(Integer.toString(R.id.button3));
-                    break;
-                default:
-                    break;
-            }
+            quiz(v, quizFood);
         }
     };
 
 
+    public static void setQuizFood(FoodObject quizFood) {
+        MainActivity.quizFood = quizFood;
+    }
+
+    public static void quiz(View v, FoodObject food){
+        switch(v.getId()){
+            case R.id.button:
+                if("Fridge" == food.getOptimalStorageSpace()){
+                    quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " in the " + food.getOptimalStorageSpace());
+                } else quizText.setText("That is unfortunately wrong");
+            break;
+
+            case R.id.button2:
+                if("Freezer" == food.getOptimalStorageSpace()){
+                    quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " in the " + food.getOptimalStorageSpace());
+                } else quizText.setText("That is unfortunately wrong");
+            break;
+
+            case R.id.button3:
+                if("Counter" == food.getOptimalStorageSpace()){
+                    quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " in the " + food.getOptimalStorageSpace());
+                } else quizText.setText("That is unfortunately wrong");
+            break;
+        }
+    }
+
     public static void quizGenerator(FoodObject food){
         quizText.setText("Where do you store : " + food.getName() + " ?");
-
+        setQuizFood(food);
     }
 
     // Create an anonymous implementation of OnClickListener
