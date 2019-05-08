@@ -22,6 +22,7 @@ public class CategorizedList extends AppCompatActivity {
 
     public static Resources res;
 
+
     public static Drawable lemonPic;
     public static Drawable counterPic;
 

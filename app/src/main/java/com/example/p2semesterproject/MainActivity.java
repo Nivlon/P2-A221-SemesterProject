@@ -15,12 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static TextView quizText;
 
-
-
-
-
-
-
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public static void quizGenerator(FoodObject food){
-        quizText.setText(food.getName());
+        quizText.setText("Where do you store : " + food.getName() + " ?");
+
     }
 
     // Create an anonymous implementation of OnClickListener
