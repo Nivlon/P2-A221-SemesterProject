@@ -112,8 +112,8 @@ public class CategorizedList extends AppCompatActivity {
                 {
                     new FoodObject("Butter",res.getDrawable(R.drawable.butter),res.getDrawable(R.drawable.fridge1)),
                     new FoodObject("Cheese",res.getDrawable(R.drawable.cheese),res.getDrawable(R.drawable.fridge1)),
-                    new FoodObject("Eggs",res.getDrawable(R.drawable.milknegg),res.getDrawable(R.drawable.fridge1)),
-                    new FoodObject("Milk",res.getDrawable(R.drawable.milknegg),res.getDrawable(R.drawable.fridge1)),
+                    new FoodObject("Eggs",res.getDrawable(R.drawable.egg),res.getDrawable(R.drawable.fridge1)),
+                    new FoodObject("Milk",res.getDrawable(R.drawable.milk),res.getDrawable(R.drawable.fridge1)),
                     new FoodObject("Yogurt",res.getDrawable(R.drawable.yogurt),res.getDrawable(R.drawable.fridge1)),
                 },
                 //Baked goods
