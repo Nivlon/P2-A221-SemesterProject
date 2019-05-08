@@ -14,6 +14,16 @@ public class FoodObject {
     private int storageTime=0;
     private boolean isPinned=false;
     public String Description="";
+    private static Drawable[] pinsIcons;
+
+    public static void setPinsIcons(Drawable[] _pinsIcons) {
+        pinsIcons = _pinsIcons;
+    }
+
+
+    public static Drawable[] getPinsIcons() {
+        return pinsIcons;
+    }
 
     FoodObject(String _name, Drawable _foodIcon, String _optimalStorageString) {
         name=_name;
@@ -69,6 +79,10 @@ public class FoodObject {
 
     public void Pin() {
         isPinned = !isPinned;
+    }
+
+    public boolean isPinned() {
+        return isPinned;
     }
 
     public String getDescription() {

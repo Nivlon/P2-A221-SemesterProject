@@ -31,7 +31,7 @@ public class CategorizedList extends AppCompatActivity {
     public static FoodObject[][] foodData;
 
     public static boolean isPinPress;
-    public static int pinYPosition=400;
+    public static int pinYPosition=800;
 
 
 
@@ -43,6 +43,7 @@ public class CategorizedList extends AppCompatActivity {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         res = getResources();
         FoodObject.setStorageSpaceIcons(new Drawable[]{res.getDrawable(R.drawable.fridge1),res.getDrawable(R.drawable.iceicebaby),res.getDrawable(R.drawable.counter)});
+        FoodObject.setPinsIcons(new Drawable[]{res.getDrawable(R.drawable.pinned),res.getDrawable(R.drawable.unpinned)});
         foodData=new FoodObject[][]{
                 //Fruit
                 {
@@ -92,6 +93,7 @@ public class CategorizedList extends AppCompatActivity {
                     new FoodObject("Tomato",res.getDrawable(R.drawable.tomato),"Counter"),
                     new FoodObject("Lettuce",res.getDrawable(R.drawable.lettuce),"Fridge")
                 }};
+
         MainActivity.isCreated = true;
 
         recyclerView=findViewById(R.id.foodList);
@@ -111,9 +113,8 @@ public class CategorizedList extends AppCompatActivity {
                     foodData[categoryIndex][position].Pin();
                 }
 
-            }
-            @Override
-            public void onLongClick(View view, int position) {
+                listAdapter =new FoodListAdapter(foodData[categoryIndex]);
+                recyclerView.setAdapter(listAdapter);
 
             }
         }));
@@ -135,8 +136,6 @@ public class CategorizedList extends AppCompatActivity {
     ////      //    //   //      //
     public interface ClickListener {
         void onClick(View view, int position);
-
-        void onLongClick(View view, int position);
     }
 
     static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
@@ -152,19 +151,12 @@ public class CategorizedList extends AppCompatActivity {
                     return true;
                 }
 
-                @Override
-                public void onLongPress(MotionEvent e) {
-                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
-                    if (child != null && clickListener != null) {
-                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
-                    }
-                }
             });
         }
 
         @Override
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-
+            isPinPress=e.getX()<pinYPosition;
             View child = rv.findChildViewUnder(e.getX(), e.getY());
             if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
                 clickListener.onClick(child, rv.getChildPosition(child));
@@ -174,7 +166,7 @@ public class CategorizedList extends AppCompatActivity {
 
         @Override
         public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-            isPinPress=e.getX()>pinYPosition;
+
         }
 
         @Override

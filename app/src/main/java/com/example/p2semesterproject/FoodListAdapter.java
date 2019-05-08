@@ -23,9 +23,9 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
         TextView name;// init the item view's
         ImageView imageOne;
         Button infoButton;
-        FoodObject foodItem;
         ImageView storageImage;
         TextView storageTime;
+        ImageView pinButton;
         public MyViewHolder(View itemView) {
             super(itemView);
 
@@ -35,6 +35,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
             storageImage = itemView.findViewById(R.id.storageImage);
             infoButton = itemView.findViewById(R.id.infoButton);
             storageTime = itemView.findViewById(R.id.time);
+            pinButton=itemView.findViewById(R.id.pin);
 
         }
     }
@@ -64,6 +65,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
         holder.imageOne.setImageDrawable(foodData[position].getFoodIcon());
         holder.storageImage.setImageDrawable(foodData[position].getOptimalStorageIcon());
         holder.storageTime.setText(foodData[position].getStorageTime()+" day(s)");
+        holder.pinButton.setImageDrawable((foodData[position].isPinned())?FoodObject.getPinsIcons()[0]:FoodObject.getPinsIcons()[1]);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
