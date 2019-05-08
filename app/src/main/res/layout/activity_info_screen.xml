@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.983"
-        app:srcCompat="@drawable/fridge1" />
+        app:srcCompat="@drawable/open_fridge" />
 
     <TextView
         android:id="@+id/textView"
@@ -80,8 +80,8 @@
 
     <ImageView
         android:id="@+id/foodImage"
-        android:layout_width="50dp"
-        android:layout_height="49dp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -90,10 +90,10 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintHorizontal_bias="0.399"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.621"
+        app:layout_constraintVertical_bias="0.644"
         app:srcCompat="@drawable/bellpep" />
 
 </android.support.constraint.ConstraintLayout>
