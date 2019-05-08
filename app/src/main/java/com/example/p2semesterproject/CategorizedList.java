@@ -40,6 +40,7 @@ public class CategorizedList extends AppCompatActivity {
         setContentView(R.layout.activity_categorized_list);
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         res = getResources();
+        FoodObject.setStorageSpaceIcons(new Drawable[]{res.getDrawable(R.drawable.fridge1),res.getDrawable(R.drawable.iceicebaby),res.getDrawable(R.drawable.counter)});
         foodData=new FoodObject[][]{
                 //Fruit
                 {
