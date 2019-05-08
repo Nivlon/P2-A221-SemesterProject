@@ -60,8 +60,8 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.name.setText(foodData[position].getName());
-        holder.imageOne.setImageDrawable(foodData[position].getIcon());
-        holder.storageImage.setImageDrawable(foodData[position].getStorage());
+        holder.imageOne.setImageDrawable(foodData[position].getFoodIcon());
+        holder.storageImage.setImageDrawable(foodData[position].getOptimalStorageIcon());
     }
 
     // Return the size of your dataset (invoked by the layout manager)

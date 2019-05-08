@@ -7,44 +7,49 @@ import android.support.annotation.RequiresApi;
 public class FoodObject {
 
     private String name;
-    //static String[] storageSpaces={"Fridge","Freezer","Cabinet"};
-    //private int[] storageTime=new int[storageSpaces.length];
-    private Drawable icon;
-    private Drawable storage;
+    private Drawable foodIcon;
+    private static String[] storageSpaces={"Fridge","Freezer","Counter"};
+    private static Drawable[] storageSpaceIcons;
+    private int optimalStorageIndex;
+    private int storageTime=0;
+    private boolean isPinned=false;
 
-
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    FoodObject(String _name) {
+    FoodObject(String _name, Drawable _foodIcon, String _optimalStorageString) {
         name=_name;
-        icon=CategorizedList.lemonPic;
-
+        foodIcon=_foodIcon;
+        for(int i=0;i<storageSpaces.length;i++) {
+            if(storageSpaces[i]==_optimalStorageString) {
+                optimalStorageIndex=i;
+                break;
+            }
+        }
     }
 
-    FoodObject(String _name, Drawable _icon) {
+    FoodObject(String _name, Drawable _foodIcon, String _optimalStorageString, int _storageTime) {
         name=_name;
-        icon=_icon;
-    }
-
-    FoodObject(String _name, Drawable _icon, Drawable _storage) {
-        name=_name;
-        icon=_icon;
-        storage=_storage;
+        foodIcon=_foodIcon;
+        for(int i=0;i<storageSpaces.length;i++) {
+            if(storageSpaces[i]==_optimalStorageString) {
+                optimalStorageIndex=i;
+                break;
+            }
+        }
+        storageTime=_storageTime;
     }
 
     public String getName() { return name; }
 
-    public void setName(String name) { this.name = name; }
+    public Drawable getFoodIcon() { return foodIcon; }
 
-    public Drawable getIcon() { return icon; }
+    public int getStorageTime() { return storageTime; }
 
-    public void setIcon(Drawable icon) { this.icon = icon; }
+    public Drawable[] getStorageSpaceIcons() { return storageSpaceIcons; }
 
-    public Drawable getStorage() {
-        return storage;
-    }
+    public String getOptimalStorageSpace() {return storageSpaces[optimalStorageIndex];}
 
-    public void setStorage(Drawable storage) {
-        this.storage = storage;
+    public Drawable getOptimalStorageIcon() { return storageSpaceIcons[optimalStorageIndex]; }
+
+    public void Pin() {
+        isPinned = !isPinned;
     }
 }

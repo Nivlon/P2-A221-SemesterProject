@@ -28,10 +28,10 @@ public class InfoScreen extends AppCompatActivity {
         ImageView foodImage = findViewById(R.id.foodImage);
         ImageView storageImage=findViewById(R.id.storageImage);
         foodName.setText(foodItem.getName());
-        foodImage.setImageDrawable(foodItem.getIcon());
-        storageImage.setImageDrawable(foodItem.getStorage());
+        foodImage.setImageDrawable(foodItem.getFoodIcon());
+        storageImage.setImageDrawable(foodItem.getOptimalStorageIcon());
 
-        if (foodItem.getStorage()==CategorizedList.counterPic) {
+        if (foodItem.getOptimalStorageSpace()=="Counter") {
             foodImage.setTranslationY(-490);
         }
     }
