@@ -1,5 +1,6 @@
 package com.example.p2semesterproject;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -9,15 +10,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class MainActivity extends AppCompatActivity {
 
+    private static TextView quizText;
 
 
+
+
+
+
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        MainActivity.quizText = (TextView)findViewById(R.id.textView2);
 
         // Quiz buttons
         Button option_1 = findViewById(R.id.button);
@@ -44,15 +53,12 @@ public class MainActivity extends AppCompatActivity {
         dairyBut.setOnClickListener(categoryButtonListener);
         bakedBut.setOnClickListener(categoryButtonListener);
         vegBut.setOnClickListener(categoryButtonListener);
-
-
     }
 
     private View.OnClickListener quizButtonListener = new View.OnClickListener(){
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void onClick(View v){
 
-            setContentView(R.layout.activity_main);
             TextView newText;
 
             switch(v.getId()){
@@ -76,13 +82,9 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private void quizGenerator(FoodObject food, TextView quiz, View see){
-        quiz.setText("Where do you store " + food.getName() + " ?");
 
-        switch(see.getId()) {
-
-
-        }
+    public static void quizGenerator(FoodObject food){
+        quizText.setText(food.getName());
     }
 
     // Create an anonymous implementation of OnClickListener

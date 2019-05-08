@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class CategorizedList extends AppCompatActivity {
@@ -83,7 +84,7 @@ public class CategorizedList extends AppCompatActivity {
         categoryIndex = _categoryIndex;
     }
 
-    private static FoodObject[][] foodData;
+    public static FoodObject[][] foodData;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -166,8 +167,7 @@ public class CategorizedList extends AppCompatActivity {
             }
         }));
 
+        MainActivity.quizGenerator(foodData[0][5]);
     }
-
-
 
 }
