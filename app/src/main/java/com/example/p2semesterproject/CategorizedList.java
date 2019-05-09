@@ -50,51 +50,51 @@ public class CategorizedList extends AppCompatActivity {
             foodData = new FoodObject[][]{
                     //Fruit
                     {
-                            new FoodObject("Apple", res.getDrawable(R.drawable.apple), "Counter","4-5","Its an apple"),
+                            new FoodObject("Apple", res.getDrawable(R.drawable.apple), "Fridge","4-5","Its an apple"),
                             new FoodObject("Banana", res.getDrawable(R.drawable.banana), "Counter"),
                             new FoodObject("Grapes", res.getDrawable(R.drawable.grape), "Fridge","7","","Crisper"),
-                            new FoodObject("Kiwi", res.getDrawable(R.drawable.kiwi), "Counter", "until ripe","when ripe: in fridge(crisper) for 3-4 days. "),
-                            new FoodObject("Melon", res.getDrawable(R.drawable.melon), "Counter"),
-                            new FoodObject("Orange", res.getDrawable(R.drawable.orange), "Counter"),
-                            new FoodObject("Pear", res.getDrawable(R.drawable.pear), "Counter"),
-                            new FoodObject("Raspberry", res.getDrawable(R.drawable.raspberry), "Fridge"),
-                            new FoodObject("Strawberry", res.getDrawable(R.drawable.strawberry), "Fridge"),
-                            new FoodObject("Watermelon", res.getDrawable(R.drawable.watermelon), "Counter"),
-                            new FoodObject("Lemon", res.getDrawable(R.drawable.lemon), "Counter"),
+                            new FoodObject("Kiwi", res.getDrawable(R.drawable.kiwi), "Fridge", "3-4","Store in room temperature until ripe. "),
+                            new FoodObject("Melon", res.getDrawable(R.drawable.melon), "Fridge","14","Store in room temperature until ripe. Store in fridge when ripe or cut.","Crisper"),
+                           // new FoodObject("Orange", res.getDrawable(R.drawable.orange), "Counter"),
+                            new FoodObject("Pear", res.getDrawable(R.drawable.pear), "Fridge","3-4","Store in room temperature until ripe","Crisper"),
+                            new FoodObject("Raspberry", res.getDrawable(R.drawable.raspberry), "Fridge","1-2","Remove any spoiled or crushed fruits before storing.","Crisper"),
+                            new FoodObject("Strawberry", res.getDrawable(R.drawable.strawberry), "Fridge","1-2","Remove any spoiled or crushed fruits before storing.","Crisper"),
+                            new FoodObject("Watermelon", res.getDrawable(R.drawable.watermelon), "Fridge","14","Store in room temperature until ripe. Store in fridge when ripe or cut.","Crisper"),
+                            //new FoodObject("Lemon", res.getDrawable(R.drawable.lemon), "Counter"),
                     },
                     //Dairy and Eggs
                     {
-                            new FoodObject("Butter", res.getDrawable(R.drawable.butter), "Fridge"),
-                            new FoodObject("Cheese", res.getDrawable(R.drawable.cheese), "Fridge"),
-                            new FoodObject("Eggs", res.getDrawable(R.drawable.egg), "Fridge"),
-                            new FoodObject("Milk", res.getDrawable(R.drawable.milk), "Fridge"),
-                            new FoodObject("Yogurt", res.getDrawable(R.drawable.yogurt), "Fridge"),
+                            new FoodObject("Cheese", res.getDrawable(R.drawable.cheese), "Fridge","21-28","Can be kept in the freezer for 3-4 months","Top Shelf"),
+                            new FoodObject("Eggs", res.getDrawable(R.drawable.egg), "Fridge","21-28","If you are only using either the egg yolk or the egg white and want to store the leftover, expect that the yolk can last 1 day and the whites 2-3 days in the fridge.","Top Shelf"),
+                            new FoodObject("Milk", res.getDrawable(R.drawable.milk), "Fridge","7","","Top Shelf"),
+                            new FoodObject("Yogurt", res.getDrawable(R.drawable.yogurt), "Fridge","28-31","","Top Shelf"),
+                            new FoodObject("Butter", res.getDrawable(R.drawable.butter), "Fridge","89-92","Can be kept in the freezer for 6-9 months."),
                     },
                     //Baked goods
                     {
-                            new FoodObject("White Bread", res.getDrawable(R.drawable.bread), "Counter"),
-                            new FoodObject("Rye Bread", res.getDrawable(R.drawable.ryebread), "Counter"),
+                            new FoodObject("White Bread", res.getDrawable(R.drawable.bread), "Counter","2-4","Keep it in airtight packaging, like a plastic bag, or it will dry out and become stale."),
+                            new FoodObject("Rye Bread", res.getDrawable(R.drawable.ryebread), "Counter","4-5","Keep it in airtight packaging, like a plastic bag, or it will dry out and become stale."),
                     },
                     //Meat
                     {
-                            new FoodObject("Beef", res.getDrawable(R.drawable.beef), "Fridge"),
-                            new FoodObject("Chicken", res.getDrawable(R.drawable.chicken), "Fridge"),
-                            new FoodObject("Fish", res.getDrawable(R.drawable.fish), "Fridge"),
-                            new FoodObject("Pork", res.getDrawable(R.drawable.pork), "Fridge")
+                            new FoodObject("Beef", res.getDrawable(R.drawable.beef), "Fridge","3-5","Leave in store-bought packaging when stored in the fridge, if you need to reseal the meat, put it in an airtight plastic bag with as little air as possible. It will last about a day like this. When storing in the freezer, rewrap it in airtight freezer bags. Can be kept in the freezer for 4-12 months.","Top Shelf"),
+                            new FoodObject("Chicken", res.getDrawable(R.drawable.chicken), "Fridge","1-2","Leave in store-bought packaging when stored in the fridge, if you need to reseal the meat, put it in an airtight plastic bag with as little air as possible. It will last about a day like this. When storing in the freezer, rewrap it in airtight freezer bags. Can be kept in the freezer for up to 9 months.","Top Shelf"),
+                            new FoodObject("Fish", res.getDrawable(R.drawable.fish), "Fridge","3-5","Can be kept in the freezer for 6-9 months.","Top Shelf"),
+                            new FoodObject("Pork", res.getDrawable(R.drawable.pork), "Fridge","3-5","Leave in store-bought packaging when stored in the fridge, if you need to reseal the meat, put it in an airtight plastic bag with as little air as possible. It will last about a day like this. When storing in the freezer, rewrap it in airtight freezer bags. Can be kept in the freezer for 4-12 months.","Top Shelf")
                     },
                     //Vegetables
                     {
-                            new FoodObject("Bell Pepper", res.getDrawable(R.drawable.bellpep), "Fridge"),
-                            new FoodObject("Cabbage", res.getDrawable(R.drawable.cabbage), "Fridge"),
-                            new FoodObject("Carrot", res.getDrawable(R.drawable.carrot), "Fridge"),
-                            new FoodObject("Chili", res.getDrawable(R.drawable.chilli), "Fridge"),
-                            new FoodObject("Corn", res.getDrawable(R.drawable.corn), "Fridge"),
-                            new FoodObject("Cucumber", res.getDrawable(R.drawable.cucumb), "Fridge"),
-                            new FoodObject("Garlic", res.getDrawable(R.drawable.garlic), "Counter"),
-                            new FoodObject("Onion", res.getDrawable(R.drawable.onion), "Counter"),
-                            new FoodObject("Potato", res.getDrawable(R.drawable.potatoes), "Counter"),
-                            new FoodObject("Tomato", res.getDrawable(R.drawable.tomato), "Counter"),
-                            new FoodObject("Lettuce", res.getDrawable(R.drawable.lettuce), "Fridge")
+                            new FoodObject("Bell Pepper", res.getDrawable(R.drawable.bellpep), "Fridge","4-5","","Crisper"),
+                            new FoodObject("Cabbage", res.getDrawable(R.drawable.cabbage), "Fridge","7-14","","Crisper"),
+                            new FoodObject("Carrot", res.getDrawable(R.drawable.carrot), "Fridge","21","","Crisper"),
+                            new FoodObject("Chili", res.getDrawable(R.drawable.chilli), "Fridge","4-5","","Crisper"),
+                            new FoodObject("Corn", res.getDrawable(R.drawable.corn), "Fridge","1-2","","Crisper"),
+                            new FoodObject("Cucumber", res.getDrawable(R.drawable.cucumb), "Fridge","4-5","","Crisper"),
+                            new FoodObject("Garlic", res.getDrawable(R.drawable.garlic), "Counter","28-31"),
+                            new FoodObject("Onion", res.getDrawable(R.drawable.onion), "Counter","14-28","Store in a dry area and away from light."),
+                            new FoodObject("Potato", res.getDrawable(R.drawable.potatoes), "Counter","28-62","Potatoes are a bit fragile, avoid bumping them as this can cause them to produce solanine, a toxic substance. They should be stored in a cool dry place and away from light."),
+                            new FoodObject("Tomato", res.getDrawable(R.drawable.tomato), "Fridge","5-6","Store unripened tomatoes in room temperature and away from light until ripe.","Crisper"),
+                            new FoodObject("Lettuce", res.getDrawable(R.drawable.lettuce), "Fridge","7-14","Store in a bag.","Crisper")
                     }};
             foodDataCreated=true;
         }

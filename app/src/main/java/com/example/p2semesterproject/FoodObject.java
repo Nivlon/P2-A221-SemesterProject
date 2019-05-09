@@ -48,6 +48,18 @@ public class FoodObject {
         }
     }
 
+    FoodObject(String _name, Drawable _foodIcon, String _optimalStorageString, String _storageTime) {
+        name=_name;
+        foodIcon=_foodIcon;
+        for(int i=0;i<storageSpaces.length;i++) {
+            if(storageSpaces[i].equals(_optimalStorageString)) {
+                optimalStorageIndex=i;
+                break;
+            }
+        }
+        storageTime=_storageTime;
+    }
+
     FoodObject(String _name, Drawable _foodIcon, String _optimalStorageString, String _storageTime, String _description) {
         name=_name;
         foodIcon=_foodIcon;
