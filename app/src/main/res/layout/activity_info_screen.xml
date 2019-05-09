@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".InfoScreen">
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"
@@ -22,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" /> </android.support.v4.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/foodName"
