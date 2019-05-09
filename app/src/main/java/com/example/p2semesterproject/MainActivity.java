@@ -6,14 +6,18 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Random;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class MainActivity extends AppCompatActivity {
 
     public static TextView quizText;
+    public static CardView quizView;
     public static FoodObject quizFood;
 
     @Override
@@ -21,7 +25,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if(CategorizedList.foodDataCreated)
-            MainActivity.quizGenerator(CategorizedList.foodData[0][5]);
+            if(CategorizedList.getPinnedList()!=null) {
+                MainActivity.quizGenerator(CategorizedList.getPinnedList()[new Random().nextInt(CategorizedList.getPinnedList().length)]);
+            } else {
+                quizView.setVisibility(View.INVISIBLE);
+            }
     }
 
 
