@@ -99,8 +99,6 @@ public class CategorizedList extends AppCompatActivity {
             foodDataCreated=true;
         }
 
-        MainActivity.isCreated = true;
-
         recyclerView=findViewById(R.id.foodList);
         recyclerView.setHasFixedSize(true); //for performance (I don't know what it does)
         layoutManager = new LinearLayoutManager(this);
@@ -128,6 +126,10 @@ public class CategorizedList extends AppCompatActivity {
 
     public static void setCategoryIndex(int _categoryIndex) {
         categoryIndex = _categoryIndex;
+    }
+
+    public static int getCategoryIndex() {
+        return categoryIndex;
     }
 
     public static void orderPinnedList() {

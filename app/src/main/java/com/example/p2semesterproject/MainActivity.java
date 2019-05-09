@@ -15,13 +15,12 @@ public class MainActivity extends AppCompatActivity {
 
     public static TextView quizText;
     public static FoodObject quizFood;
-    public static boolean isCreated = false;
 
     @Override
 
     protected void onResume() {
         super.onResume();
-        if(isCreated)
+        if(CategorizedList.foodDataCreated)
             MainActivity.quizGenerator(CategorizedList.foodData[0][5]);
     }
 
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.button3:
                 if("Counter" == food.getOptimalStorageSpace()){
-                    quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " in the " + food.getOptimalStorageSpace());
+                    quizText.setText("That is correct!\nIt can be stored for " + food.getStorageTime() + " day(s) in the " + food.getOptimalStorageSpace());
                 } else quizText.setText("That is unfortunately wrong");
             break;
         }

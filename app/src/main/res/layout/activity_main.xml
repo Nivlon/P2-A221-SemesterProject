@@ -96,10 +96,9 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="110dp"
-            android:text="KVEZ"
-            android:textSize="50sp"
-            android:textStyle="italic"
-            android:translationX="100dp"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="normal"
             android:visibility="visible" />
 
         <Button
