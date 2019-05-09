@@ -31,17 +31,21 @@ public class InfoScreen extends AppCompatActivity {
         ImageView storageImage=findViewById(R.id.storageImage);
         foodName.setText(foodItem.getName());
         description.setText(foodItem.getDescription());
-        storageTime.setText(foodItem.getStorageTime()+" day(s)");
+        if (foodItem.getOptimalStorageSpace()=="Counter") { storageTime.setText(foodItem.getOptimalStorageSpace()+": Lasts for "+foodItem.getStorageTime()+" day(s)");
+        }
+        else {storageTime.setText(foodItem.getOptimalStorageSpace()+" ("+foodItem.getFridgePosition()+"): Lasts for "+foodItem.getStorageTime()+" day(s)");
+        }
+
         foodImage.setImageDrawable(foodItem.getFoodIcon());
         storageImage.setImageDrawable(foodItem.getOptimalInfoScreenStorageIcon());
 
         if (foodItem.getOptimalStorageSpace()=="Counter") {
-            foodImage.setTranslationY(-490);
+            foodImage.setTranslationY(-510);
         } else if(foodItem.getOptimalStorageSpace()=="Fridge") {
             switch (foodItem.getFridgePosition()) {
                 case "Crisper":
-                    foodImage.setY(200); //Tanja Stuff
-                    foodImage.setX(200);
+                    foodImage.setY(-5); //Tanja Stuff
+                    foodImage.setX(0);
                     break;
                 case "Bottom Shelf":
                     foodImage.setY(200);
@@ -50,6 +54,8 @@ public class InfoScreen extends AppCompatActivity {
                 case "Top Shelf":
                     foodImage.setY(200);
                     foodImage.setX(200);
+                    break;
+                default:
                     break;
             }
 
