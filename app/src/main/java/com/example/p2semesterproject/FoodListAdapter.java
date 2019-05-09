@@ -61,11 +61,15 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.name.setText(foodData[position].getName());
-        holder.imageOne.setImageDrawable(foodData[position].getFoodIcon());
-        holder.storageImage.setImageDrawable(foodData[position].getOptimalStorageIcon());
-        holder.storageTime.setText(foodData[position].getStorageTime()+" day(s)");
-        holder.pinButton.setImageDrawable((foodData[position].isPinned())?FoodObject.getPinsIcons()[0]:FoodObject.getPinsIcons()[1]);
+        try {
+            holder.name.setText(foodData[position].getName() + ((foodData[position].isStarred()) ? "*" : ""));
+            holder.imageOne.setImageDrawable(foodData[position].getFoodIcon());
+            holder.storageImage.setImageDrawable(foodData[position].getOptimalStorageIcon());
+            holder.storageTime.setText(foodData[position].getStorageTime() + " day(s)");
+            holder.pinButton.setImageDrawable((foodData[position].isPinned()) ? FoodObject.getPinsIcons()[0] : FoodObject.getPinsIcons()[1]);
+        } catch (NullPointerException e) {
+
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)

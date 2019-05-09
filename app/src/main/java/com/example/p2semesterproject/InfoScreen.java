@@ -25,14 +25,34 @@ public class InfoScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_screen);
         TextView foodName = findViewById(R.id.foodName);
+        TextView description = findViewById(R.id.description);
+        TextView storageTime = findViewById(R.id.storageTime);
         ImageView foodImage = findViewById(R.id.foodImage);
         ImageView storageImage=findViewById(R.id.storageImage);
         foodName.setText(foodItem.getName());
+        description.setText(foodItem.getDescription());
+        storageTime.setText(foodItem.getStorageTime()+" day(s)");
         foodImage.setImageDrawable(foodItem.getFoodIcon());
-        storageImage.setImageDrawable(foodItem.getOptimalStorageIcon());
+        storageImage.setImageDrawable(foodItem.getOptimalInfoScreenStorageIcon());
 
         if (foodItem.getOptimalStorageSpace()=="Counter") {
             foodImage.setTranslationY(-490);
+        } else if(foodItem.getOptimalStorageSpace()=="Fridge") {
+            switch (foodItem.getFridgePosition()) {
+                case "Crisper":
+                    foodImage.setY(200); //Tanja Stuff
+                    foodImage.setX(200);
+                    break;
+                case "Bottom Shelf":
+                    foodImage.setY(200);
+                    foodImage.setX(200);
+                    break;
+                case "Top Shelf":
+                    foodImage.setY(200);
+                    foodImage.setX(200);
+                    break;
+            }
+
         }
     }
 }

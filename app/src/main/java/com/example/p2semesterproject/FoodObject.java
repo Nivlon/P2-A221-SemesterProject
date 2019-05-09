@@ -6,15 +6,27 @@ import android.support.annotation.RequiresApi;
 
 public class FoodObject {
 
-    private String name;
-    private Drawable foodIcon;
     private static String[] storageSpaces={"Fridge","Freezer","Counter"};
     private static Drawable[] storageSpaceIcons;
+    private static Drawable[] storageSpaceInfScreenIcons;
+    private static Drawable[] pinsIcons;
+
+    private String name;
+    private Drawable foodIcon;
     private int optimalStorageIndex;
     private int storageTime=0;
     private boolean isPinned=false;
-    public String Description="";
-    private static Drawable[] pinsIcons;
+    private String Description="";
+    private boolean isStarred=false;
+    private String fridgePosition;
+
+    public String getFridgePosition() {
+        return fridgePosition;
+    }
+
+    public boolean isStarred() {
+        return isStarred;
+    }
 
     public static void setPinsIcons(Drawable[] _pinsIcons) {
         pinsIcons = _pinsIcons;
@@ -73,9 +85,15 @@ public class FoodObject {
         FoodObject.storageSpaceIcons = storageSpaceIcons;
     }
 
+    public static void setStorageInfoScreenIcons(Drawable[] _storageSpaceInfScreenIcons) {
+        FoodObject.storageSpaceInfScreenIcons = _storageSpaceInfScreenIcons;
+    }
+
     public String getOptimalStorageSpace() {return storageSpaces[optimalStorageIndex];}
 
     public Drawable getOptimalStorageIcon() { return storageSpaceIcons[optimalStorageIndex]; }
+
+    public Drawable getOptimalInfoScreenStorageIcon() { return storageSpaceInfScreenIcons[optimalStorageIndex]; }
 
     public void Pin() {
         isPinned = !isPinned;

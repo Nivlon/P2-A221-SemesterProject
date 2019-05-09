@@ -7,7 +7,7 @@
     tools:context=".InfoScreen">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -61,7 +61,7 @@
         app:srcCompat="@drawable/open_fridge" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/storageTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
