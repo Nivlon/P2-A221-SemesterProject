@@ -50,10 +50,10 @@ public class CategorizedList extends AppCompatActivity {
             foodData = new FoodObject[][]{
                     //Fruit
                     {
-                            new FoodObject("Apple", res.getDrawable(R.drawable.apple), "Counter"),
+                            new FoodObject("Apple", res.getDrawable(R.drawable.apple), "Counter","4-5","Its an apple"),
                             new FoodObject("Banana", res.getDrawable(R.drawable.banana), "Counter"),
-                            new FoodObject("Grapes", res.getDrawable(R.drawable.grape), "Fridge"),
-                            new FoodObject("Kiwi", res.getDrawable(R.drawable.kiwi), "Counter"),
+                            new FoodObject("Grapes", res.getDrawable(R.drawable.grape), "Fridge","7","","Crisper"),
+                            new FoodObject("Kiwi", res.getDrawable(R.drawable.kiwi), "Counter", "until ripe","when ripe: in fridge(crisper) for 3-4 days. "),
                             new FoodObject("Melon", res.getDrawable(R.drawable.melon), "Counter"),
                             new FoodObject("Orange", res.getDrawable(R.drawable.orange), "Counter"),
                             new FoodObject("Pear", res.getDrawable(R.drawable.pear), "Counter"),

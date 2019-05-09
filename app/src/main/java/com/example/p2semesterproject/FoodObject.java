@@ -14,11 +14,11 @@ public class FoodObject {
     private String name;
     private Drawable foodIcon;
     private int optimalStorageIndex;
-    private int storageTime=0;
+    private String storageTime="";
     private boolean isPinned=false;
     private String Description="";
     private boolean isStarred=false;
-    private String fridgePosition;
+    private String fridgePosition="";
 
     public String getFridgePosition() {
         return fridgePosition;
@@ -48,19 +48,7 @@ public class FoodObject {
         }
     }
 
-    FoodObject(String _name, Drawable _foodIcon, String _optimalStorageString, int _storageTime) {
-        name=_name;
-        foodIcon=_foodIcon;
-        for(int i=0;i<storageSpaces.length;i++) {
-            if(storageSpaces[i].equals(_optimalStorageString)) {
-                optimalStorageIndex=i;
-                break;
-            }
-        }
-        storageTime=_storageTime;
-    }
-
-    FoodObject(String _name, Drawable _foodIcon, String _optimalStorageString, int _storageTime, String _description) {
+    FoodObject(String _name, Drawable _foodIcon, String _optimalStorageString, String _storageTime, String _description) {
         name=_name;
         foodIcon=_foodIcon;
         for(int i=0;i<storageSpaces.length;i++) {
@@ -73,11 +61,26 @@ public class FoodObject {
         Description=_description;
     }
 
+    FoodObject(String _name, Drawable _foodIcon, String _optimalStorageString, String _storageTime, String _description, String _fridgePosition) {
+        name=_name;
+        foodIcon=_foodIcon;
+        for(int i=0;i<storageSpaces.length;i++) {
+            if(storageSpaces[i].equals(_optimalStorageString)) {
+                optimalStorageIndex=i;
+                break;
+            }
+        }
+        storageTime=_storageTime;
+        Description=_description;
+        fridgePosition=_fridgePosition;
+    }
+
+
     public String getName() { return name; }
 
     public Drawable getFoodIcon() { return foodIcon; }
 
-    public int getStorageTime() { return storageTime; }
+    public String getStorageTime() { return storageTime; }
 
     public Drawable[] getStorageSpaceIcons() { return storageSpaceIcons; }
 
