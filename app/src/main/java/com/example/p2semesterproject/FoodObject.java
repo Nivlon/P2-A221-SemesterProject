@@ -1,8 +1,6 @@
 package com.example.p2semesterproject;
 
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 
 public class FoodObject {
 
@@ -96,8 +94,6 @@ public class FoodObject {
     public Drawable getFoodIcon() { return foodIcon; }
 
     public String getStorageTime() { return storageTime; }
-
-    public Drawable[] getStorageSpaceIcons() { return storageSpaceIcons; }
 
     public static void setStorageSpaceIcons(Drawable[] storageSpaceIcons) {
         FoodObject.storageSpaceIcons = storageSpaceIcons;

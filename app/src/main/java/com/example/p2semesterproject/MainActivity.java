@@ -1,9 +1,6 @@
 package com.example.p2semesterproject;
 
-import android.annotation.TargetApi;
-import android.app.Person;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -14,41 +11,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
 import java.util.Random;
 
-@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class MainActivity extends AppCompatActivity {
 
-    public static TextView quizText;
-    public static TextView quizViewHolder;
-    public static CardView quizView;
-    public static FoodObject quizFood;
-    public static ImageView theLegendImage;
-    public static Button theLegendButton;
-    public static boolean isLegendOn=false;
-    public Drawable legendOpenImg;
-    public Drawable legendClosedImg;
+    //Quiz Variables
+    private static TextView quizText;
+    private static CardView quizView;
+    private static FoodObject quizFood;
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (CategorizedList.foodDataCreated) {
-            if (CategorizedList.getPinnedList() != null) {
-                quizGenerator(CategorizedList.getPinnedList()[new Random().nextInt(CategorizedList.getPinnedList().length)]);
-                quizView.setVisibility(View.VISIBLE);
-            } else {
-                quizView.setVisibility(View.INVISIBLE);
-            }
-        } else {
-        quizView.setVisibility(View.INVISIBLE);
-        }
-    }
+    //Legend Variables
+    private static ImageView theLegendImage;
+    private static Button theLegendButton;
+    private static boolean isLegendOn=false;
+    private Drawable legendOpenImg;
+    private Drawable legendClosedImg;
 
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,43 +66,85 @@ public class MainActivity extends AppCompatActivity {
         vegBut.setOnClickListener(categoryButtonListener);
     }
 
-    private View.OnClickListener quizButtonListener = new View.OnClickListener(){
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (CategorizedList.foodDataCreated) {
+            if (CategorizedList.getPinnedList() != null) {
+                quizGenerator(CategorizedList.getPinnedList()[new Random().nextInt(CategorizedList.getPinnedList().length)]);
+                quizView.setVisibility(View.VISIBLE);
+            } else {
+                quizView.setVisibility(View.INVISIBLE);
+            }
+        } else {
+            quizView.setVisibility(View.INVISIBLE);
+        }
+    }
+
+
+    // Create an anonymous implementation of OnClickListener
+    private View.OnClickListener categoryButtonListener = new View.OnClickListener() {
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-        public void onClick(View v){
-            quiz(v, quizFood);
+        public void onClick(View v) { //Activates when a category button is clicked
+
+            //Go to list Activity
+            startActivity(new Intent(getApplicationContext(),CategorizedList.class));
+
+            // Which button is clicked?
+            switch (v.getId()) {
+                case R.id.fruit_category:
+                    CategorizedList.setCategoryIndex(0);
+                    break;
+                case R.id.dairy_category:
+                    CategorizedList.setCategoryIndex(1);
+                    break;
+                case R.id.baked_category:
+                    CategorizedList.setCategoryIndex(2);
+                    break;
+                case R.id.meat_category:
+                    CategorizedList.setCategoryIndex(3);
+                    break;
+                case R.id.veg_category:
+                    CategorizedList.setCategoryIndex(4);
+                    break;
+            }
         }
     };
 
 
-    public static void setQuizFood(FoodObject quizFood) {
-        MainActivity.quizFood = quizFood;
+    //Quiz Functions
+
+    //Set which food the quiz will ask you about
+    public static void setQuizFood(FoodObject quizFood) { MainActivity.quizFood = quizFood; }
+
+    //Creates question
+    public static void quizGenerator(FoodObject food){
+        quizText.setText("Where do you store " + food.getName() + " ?");
+        setQuizFood(food);
     }
 
+    //Checks which answer button is pressed and provides an answer
     public static void quiz(View v, FoodObject food){
+        String buttonText="";
         switch(v.getId()){
             case R.id.button:
-                if("Fridge" == food.getOptimalStorageSpace()){
-                    quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " in the " + food.getOptimalStorageSpace());
-                } else quizText.setText("That is unfortunately wrong");
-            break;
-
+                buttonText="Fridge";
+                break;
             case R.id.button2:
-                if("Freezer" == food.getOptimalStorageSpace()){
-                    quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " in the " + food.getOptimalStorageSpace());
-                } else quizText.setText("That is unfortunately wrong");
-            break;
-
+                buttonText="Freezer";
+                break;
             case R.id.button3:
-                if("Counter" == food.getOptimalStorageSpace()){
-                    quizText.setText("That is correct!\nIt can be stored for " + food.getStorageTime() + " day(s) in the " + food.getOptimalStorageSpace());
-                } else quizText.setText("That is unfortunately wrong");
-            break;
+                buttonText="Counter";
+                break;
         }
-    }
-
-    public static void quizGenerator(FoodObject food){
-        quizText.setText("Where do you store : " + food.getName() + " ?");
-        setQuizFood(food);
+        if(buttonText==food.getOptimalStorageSpace())
+            if(food.getOptimalStorageSpace()=="Counter")
+                quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " on the " + food.getOptimalStorageSpace());
+            else
+                quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " in the " + food.getOptimalStorageSpace());
+        else
+            quizText.setText("That is unfortunately wrong");
     }
 
     private View.OnClickListener legendButtonListener= new View.OnClickListener() {
@@ -141,42 +161,12 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    // Create an anonymous implementation of OnClickListener
-    private View.OnClickListener categoryButtonListener = new View.OnClickListener() {
+
+    private View.OnClickListener quizButtonListener = new View.OnClickListener(){
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-        public void onClick(View v) {
-            // do something when the button is clicked
-
-            //Go to list activity (screen)
-            startActivity(new Intent(getApplicationContext(),CategorizedList.class));
-
-            // Which button clicked?
-            switch (v.getId() /*to get clicked view id**/) {
-                case R.id.fruit_category:
-                    CategorizedList.setCategoryIndex(0);
-                    // do something when the vegetable is clicked
-                    break;
-                case R.id.meat_category:
-                    CategorizedList.setCategoryIndex(3);
-                    // do something when the meat is clicked
-                    break;
-                case R.id.dairy_category:
-                    CategorizedList.setCategoryIndex(1);
-                    // do something when the dairy is clicked
-                    break;
-                case R.id.baked_category:
-                    CategorizedList.setCategoryIndex(2);
-                    // do something when the baked is clicked
-                    break;
-                case R.id.veg_category:
-                    CategorizedList.setCategoryIndex(4);
-                    // do something when the baked is clicked
-                    break;
-                default:
-                    break;
-            }
+        public void onClick(View v){
+            quiz(v, quizFood);
         }
     };
-
 }
 
