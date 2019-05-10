@@ -131,14 +131,14 @@
             android:layout_width="match_parent"
             android:layout_height="110dp"
             android:gravity="center"
-            android:textSize="25sp"
+            android:textSize="15sp"
             android:textStyle="normal"
             android:visibility="visible" />
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="62dp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:layout_margin="12dp"
             android:background="#58A791"
             android:text="Fridge"
@@ -150,8 +150,8 @@
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="98dp"
-            android:layout_height="62dp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:layout_margin="12dp"
             android:background="#58A791"
             android:shadowColor="#00A08787"
@@ -165,8 +165,8 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="98dp"
-            android:layout_height="62dp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:layout_margin="12dp"
             android:background="#58A791"
             android:text="Counter"

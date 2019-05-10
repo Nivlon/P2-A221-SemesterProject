@@ -140,9 +140,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if(buttonText==food.getOptimalStorageSpace())
             if(food.getOptimalStorageSpace()=="Counter")
-                quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " on the " + food.getOptimalStorageSpace());
+                quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " day(s) on the " + food.getOptimalStorageSpace());
             else
-                quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " in the " + food.getOptimalStorageSpace());
+                quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " day(s) in the " + food.getOptimalStorageSpace());
         else
             quizText.setText("That is unfortunately wrong");
     }
