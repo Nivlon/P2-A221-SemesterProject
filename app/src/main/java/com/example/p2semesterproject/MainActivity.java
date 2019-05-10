@@ -1,7 +1,10 @@
 package com.example.p2semesterproject;
 
 import android.annotation.TargetApi;
+import android.app.Person;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +12,10 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.Random;
 
@@ -17,19 +23,28 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     public static TextView quizText;
+    public static TextView quizViewHolder;
     public static CardView quizView;
     public static FoodObject quizFood;
+    public static ImageView theLegendImage;
+    public static Button theLegendButton;
+    public static boolean isLegendOn=false;
+    public Drawable legendOpenImg;
+    public Drawable legendClosedImg;
 
     @Override
-
     protected void onResume() {
         super.onResume();
-        if(CategorizedList.foodDataCreated)
-            if(CategorizedList.getPinnedList()!=null) {
-                MainActivity.quizGenerator(CategorizedList.getPinnedList()[new Random().nextInt(CategorizedList.getPinnedList().length)]);
+        if (CategorizedList.foodDataCreated) {
+            if (CategorizedList.getPinnedList() != null) {
+                quizGenerator(CategorizedList.getPinnedList()[new Random().nextInt(CategorizedList.getPinnedList().length)]);
+                quizView.setVisibility(View.VISIBLE);
             } else {
                 quizView.setVisibility(View.INVISIBLE);
             }
+        } else {
+        quizView.setVisibility(View.INVISIBLE);
+        }
     }
 
 
@@ -38,8 +53,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MainActivity.quizText = (TextView)findViewById(R.id.textView2);
-
+        legendOpenImg=getResources().getDrawable(R.drawable.iconinformationopen);
+        legendClosedImg=getResources().getDrawable(R.drawable.iconinformationclosed);
+        quizView=findViewById(R.id.quiz_view);
+        quizText = findViewById(R.id.textView2);
+        theLegendImage = findViewById(R.id.thelegend27);
+        theLegendButton = findViewById(R.id.legend_button);
+        theLegendButton.setOnClickListener(legendButtonListener);
+        theLegendImage.setImageDrawable(legendClosedImg);
         // Quiz buttons
         Button option_1 = findViewById(R.id.button);
         Button option_2 = findViewById(R.id.button2);
@@ -60,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         Button vegBut = findViewById(R.id.veg_category);
 
         // Register the onClick listener with the implementation above
-            fruitBut.setOnClickListener(categoryButtonListener);
+        fruitBut.setOnClickListener(categoryButtonListener);
         meatBut.setOnClickListener(categoryButtonListener);
         dairyBut.setOnClickListener(categoryButtonListener);
         bakedBut.setOnClickListener(categoryButtonListener);
@@ -106,6 +127,20 @@ public class MainActivity extends AppCompatActivity {
         setQuizFood(food);
     }
 
+    private View.OnClickListener legendButtonListener= new View.OnClickListener() {
+        public void onClick(View v) {
+            isLegendOn=!isLegendOn;
+            if(isLegendOn) {
+                theLegendImage.setImageDrawable(legendOpenImg);
+
+            } else {
+                theLegendImage.setImageDrawable(legendClosedImg);
+
+                theLegendImage.bringToFront();
+            }
+        }
+    };
+
     // Create an anonymous implementation of OnClickListener
     private View.OnClickListener categoryButtonListener = new View.OnClickListener() {
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -144,5 +179,4 @@ public class MainActivity extends AppCompatActivity {
     };
 
 }
-
 

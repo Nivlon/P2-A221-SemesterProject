@@ -128,10 +128,6 @@ public class CategorizedList extends AppCompatActivity {
         categoryIndex = _categoryIndex;
     }
 
-    public static int getCategoryIndex() {
-        return categoryIndex;
-    }
-
     public static void orderPinnedList() {
         FoodObject[] tempFoodData=new FoodObject[foodData[categoryIndex].length];
         int tempIndex=0;
@@ -152,20 +148,23 @@ public class CategorizedList extends AppCompatActivity {
 
     public static FoodObject[] getPinnedList() {
         int pinnedCount=0;
-        for(int i=0;i<foodData.length;i++) {
+        for(int i=0;i<foodData[categoryIndex].length;i++) {
             if(foodData[categoryIndex][i].isPinned()) {
                 pinnedCount++;
             }
         }
-        FoodObject[] tempFoodData=new FoodObject[pinnedCount];
-        int tempIndex=0;
-        for(int i=0;i<foodData.length;i++) {
-            if(foodData[categoryIndex][i].isPinned()) {
-                tempFoodData[tempIndex]=foodData[categoryIndex][i];
-                tempIndex++;
+        if(pinnedCount>0) {
+            FoodObject[] tempFoodData = new FoodObject[pinnedCount];
+            int tempIndex = 0;
+            for (int i = 0; i < foodData[categoryIndex].length; i++) {
+                if (foodData[categoryIndex][i].isPinned()) {
+                    tempFoodData[tempIndex] = foodData[categoryIndex][i];
+                    tempIndex++;
+                }
             }
-        }
-        return tempFoodData;
+            return tempFoodData;
+        } else { return null;}
+
     }
 
 
