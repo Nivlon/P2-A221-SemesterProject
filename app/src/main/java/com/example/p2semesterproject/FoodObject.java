@@ -71,6 +71,8 @@ public class FoodObject {
         }
         storageTime=_storageTime;
         Description=_description;
+        if(Description!=""){isStarred=true;}
+
     }
 
     FoodObject(String _name, Drawable _foodIcon, String _optimalStorageString, String _storageTime, String _description, String _fridgePosition) {
@@ -85,6 +87,7 @@ public class FoodObject {
         storageTime=_storageTime;
         Description=_description;
         fridgePosition=_fridgePosition;
+        if(Description!=""){isStarred=true;}
     }
 
 

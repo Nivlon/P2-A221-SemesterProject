@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#BDE6F7"
     android:visibility="visible"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="1000dp"
-        android:layout_height="1000dp"
-        android:layout_marginTop="160dp"
+        android:layout_width="750dp"
+        android:layout_height="750dp"
+        android:layout_marginTop="180dp"
         android:background="@drawable/earth"
         android:gravity="center"
-        app:layout_constraintHorizontal_bias="0.387"
+        app:layout_constraintHorizontal_bias="0.277"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,60 +25,86 @@
         android:id="@+id/veg_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="#58A791"
         android:text="Vegetables"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:typeface="sans"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintVertical_bias="0.96" />
 
     <Button
         android:id="@+id/fruit_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="#58A791"
         android:text="Fruits"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:typeface="sans"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.692" />
 
     <Button
         android:id="@+id/dairy_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="#58A791"
         android:text="Dairy &amp; Eggs"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:typeface="sans"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.682" />
+        app:layout_constraintVertical_bias="0.783" />
 
     <Button
         android:id="@+id/meat_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="#58A791"
         android:text="Meat"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:typeface="sans"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.777" />
+        app:layout_constraintVertical_bias="0.874" />
 
     <Button
         android:id="@+id/baked_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="#58A791"
         android:text="Breads"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:typeface="sans"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.603" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/quiz_view"
@@ -89,11 +116,15 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="#B5D8F0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115">
+        app:layout_constraintVertical_bias="0.054"
+        android:textColor="@android:color/white"
+        android:layout_margin="12dp">
 
         <TextView
             android:id="@+id/textView2"
@@ -108,31 +139,50 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="62dp"
+            android:layout_margin="12dp"
+            android:background="#58A791"
             android:text="Fridge"
-            android:translationY="120dp" />
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:translationY="120dp"
+            android:typeface="sans" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="98dp"
             android:layout_height="62dp"
+            android:layout_margin="12dp"
+            android:background="#58A791"
+            android:shadowColor="#00A08787"
             android:text="Freezer"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
             android:translationX="100dp"
-            android:translationY="120dp" />
+            android:translationY="120dp"
+            android:typeface="sans" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="98dp"
             android:layout_height="62dp"
+            android:layout_margin="12dp"
+            android:background="#58A791"
             android:text="Counter"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
             android:translationX="200dp"
-            android:translationY="120dp" />
+            android:translationY="120dp"
+            android:typeface="sans" />
     </android.support.v7.widget.CardView>
 
     <ImageView
         android:id="@+id/thelegend27"
-        android:elevation="4dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="4dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -50,8 +50,8 @@ public class CategorizedList extends AppCompatActivity {
             foodData = new FoodObject[][]{
                     //Fruit
                     {
-                            new FoodObject("Apple", res.getDrawable(R.drawable.apple), "Fridge","4-5","Its an apple"),
-                            new FoodObject("Banana", res.getDrawable(R.drawable.banana), "Counter"),
+                            new FoodObject("Apple", res.getDrawable(R.drawable.apple), "Fridge","7-28","Store in room temperature until ripe. Leave unwashed and in plastic bags.","Crisper"),
+                            new FoodObject("Banana", res.getDrawable(R.drawable.banana), "Counter","2-3","Should be hung up and kept in a cool place until they are ready to eat. Do not break the bananas apart and avoid putting bananas in the fridge as they brown quickly and can cause chill injury to the fruit. Bananas secrete ethylene gas which accelerates the ripening of other food items, which cause them to spoil faster. So try and store them separately from other items."),
                             new FoodObject("Grapes", res.getDrawable(R.drawable.grape), "Fridge","7","","Crisper"),
                             new FoodObject("Kiwi", res.getDrawable(R.drawable.kiwi), "Fridge", "3-4","Store in room temperature until ripe. "),
                             new FoodObject("Melon", res.getDrawable(R.drawable.melon), "Fridge","14","Store in room temperature until ripe. Store in fridge when ripe or cut.","Crisper"),
