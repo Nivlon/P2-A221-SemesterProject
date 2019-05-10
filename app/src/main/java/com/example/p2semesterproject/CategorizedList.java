@@ -168,18 +168,9 @@ public class CategorizedList extends AppCompatActivity {
     }
 
 
-
-
-
-    ////      //    //   // // //////
-    //  //  //  //  ///  //      //
-    //  //  //  //  // / //      //
-    //  //  //  //  //  ///      //
-    ////      //    //   //      //
     public interface ClickListener {
         void onClick(View view, int position);
     }
-
     static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
         private GestureDetector gestureDetector;
