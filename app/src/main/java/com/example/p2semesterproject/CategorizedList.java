@@ -50,15 +50,15 @@ public class CategorizedList extends AppCompatActivity {
             foodData = new FoodObject[][]{
                     //Fruit
                     {
-                            new FoodObject("Apple", res.getDrawable(R.drawable.apple), "Fridge","7-28","Store in room temperature until ripe. Leave unwashed and in plastic bags.","Crisper"),
-                            new FoodObject("Banana", res.getDrawable(R.drawable.banana), "Counter","2-3","Should be hung up and kept in a cool place until ripe. Do not break them apart or put them in the fridge as they can get chill injury. Store them separately from other items as they secrete a gas that accelerates the ripening process."),
+                            new FoodObject("Apples", res.getDrawable(R.drawable.apple), "Fridge","7-28","Store in room temperature until ripe. Leave unwashed and in plastic bags.","Crisper"),
+                            new FoodObject("Bananas", res.getDrawable(R.drawable.banana), "Counter","2-3","Should be hung up and kept in a cool place until ripe. Do not break them apart or put them in the fridge as they can get chill injury. Store them separately from other items as they secrete a gas that accelerates the ripening process."),
                             new FoodObject("Grapes", res.getDrawable(R.drawable.grape), "Fridge","7","","Crisper"),
                             new FoodObject("Kiwi", res.getDrawable(R.drawable.kiwi), "Fridge", "3-4","Store in room temperature until ripe. "),
                             new FoodObject("Melon", res.getDrawable(R.drawable.melon), "Fridge","14","Store in room temperature until ripe. Store in fridge when ripe or cut.","Crisper"),
                            // new FoodObject("Orange", res.getDrawable(R.drawable.orange), "Counter"),
                             new FoodObject("Pear", res.getDrawable(R.drawable.pear), "Fridge","3-4","Store in room temperature until ripe","Crisper"),
-                            new FoodObject("Raspberry", res.getDrawable(R.drawable.raspberry), "Fridge","1-2","Remove any spoiled or crushed fruits before storing.","Crisper"),
-                            new FoodObject("Strawberry", res.getDrawable(R.drawable.strawberry), "Fridge","1-2","Remove any spoiled or crushed fruits before storing.","Crisper"),
+                            new FoodObject("Raspberries", res.getDrawable(R.drawable.raspberry), "Fridge","1-2","Remove any spoiled or crushed fruits before storing.","Crisper"),
+                            new FoodObject("Strawberries", res.getDrawable(R.drawable.strawberry), "Fridge","1-2","Remove any spoiled or crushed fruits before storing.","Crisper"),
                             new FoodObject("Watermelon", res.getDrawable(R.drawable.watermelon), "Fridge","14","Store in room temperature until ripe. Store in fridge when ripe or cut.","Crisper"),
                             //new FoodObject("Lemon", res.getDrawable(R.drawable.lemon), "Counter"),
                     },
@@ -86,14 +86,14 @@ public class CategorizedList extends AppCompatActivity {
                     {
                             new FoodObject("Bell Pepper", res.getDrawable(R.drawable.bellpep), "Fridge","4-5","","Crisper"),
                             new FoodObject("Cabbage", res.getDrawable(R.drawable.cabbage), "Fridge","7-14","","Crisper"),
-                            new FoodObject("Carrot", res.getDrawable(R.drawable.carrot), "Fridge","21","","Crisper"),
+                            new FoodObject("Carrots", res.getDrawable(R.drawable.carrot), "Fridge","21","","Crisper"),
                             new FoodObject("Chili", res.getDrawable(R.drawable.chilli), "Fridge","4-5","","Crisper"),
                             new FoodObject("Corn", res.getDrawable(R.drawable.corn), "Fridge","1-2","","Crisper"),
-                            new FoodObject("Cucumber", res.getDrawable(R.drawable.cucumb), "Fridge","4-5","","Crisper"),
+                            new FoodObject("Cucumbers", res.getDrawable(R.drawable.cucumb), "Fridge","4-5","","Crisper"),
                             new FoodObject("Garlic", res.getDrawable(R.drawable.garlic), "Counter","28-31"),
-                            new FoodObject("Onion", res.getDrawable(R.drawable.onion), "Counter","14-28","Store in a dry area and away from light."),
-                            new FoodObject("Potato", res.getDrawable(R.drawable.potatoes), "Counter","28-62","Potatoes are a bit fragile, avoid bumping them as this can cause them to produce solanine, a toxic substance. They should be stored in a cool dry place and away from light."),
-                            new FoodObject("Tomato", res.getDrawable(R.drawable.tomato), "Fridge","5-6","Store unripened tomatoes in room temperature and away from light until ripe.","Crisper"),
+                            new FoodObject("Onions", res.getDrawable(R.drawable.onion), "Counter","14-28","Store in a dry area and away from light."),
+                            new FoodObject("Potatoes", res.getDrawable(R.drawable.potatoes), "Counter","28-62","Potatoes are a bit fragile, avoid bumping them as this can cause them to produce solanine, a toxic substance. They should be stored in a cool dry place and away from light."),
+                            new FoodObject("Tomatoes", res.getDrawable(R.drawable.tomato), "Fridge","5-6","Store unripened tomatoes in room temperature and away from light until ripe.","Crisper"),
                             new FoodObject("Lettuce", res.getDrawable(R.drawable.lettuce), "Fridge","7-14","Store in a bag.","Crisper")
                     }};
             foodDataCreated=true;
