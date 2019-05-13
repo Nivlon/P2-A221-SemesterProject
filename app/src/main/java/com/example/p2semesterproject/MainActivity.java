@@ -3,6 +3,7 @@ package com.example.p2semesterproject;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -125,24 +126,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Checks which answer button is pressed and provides an answer
-    public static void quiz(View v, FoodObject food){
-        String buttonText="";
-        switch(v.getId()){
+    public static void quiz(View v, FoodObject food) {
+        String buttonText = "";
+        switch (v.getId()) {
             case R.id.button:
-                buttonText="Fridge";
+                buttonText = "Fridge";
                 break;
             case R.id.button2:
-                buttonText="Freezer";
+                buttonText = "Freezer";
                 break;
             case R.id.button3:
-                buttonText="Counter";
+                buttonText = "Counter";
                 break;
         }
-        if(buttonText==food.getOptimalStorageSpace())
-            if(food.getOptimalStorageSpace()=="Counter")
+        if (buttonText == food.getOptimalStorageSpace()) {
+            if (food.getOptimalStorageSpace() == "Counter")
                 quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " day(s) on the " + food.getOptimalStorageSpace());
             else
                 quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " day(s) in the " + food.getOptimalStorageSpace());
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+                public void run() {
+                    quizView.setVisibility(View.INVISIBLE);
+                }
+            }, 2600);
+        }
         else
             quizText.setText("That is unfortunately wrong");
     }
