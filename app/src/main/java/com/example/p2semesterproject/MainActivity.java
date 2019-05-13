@@ -149,10 +149,13 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     quizView.setVisibility(View.INVISIBLE);
                 }
-            }, 2600);
+            }, 4200);
         }
         else
-            quizText.setText("That is unfortunately wrong");
+            if (food.getOptimalStorageSpace() == "Counter")
+                quizText.setText("Sorry, that is incorrect, you should store "+quizFood.getName()+" on the "+quizFood.getOptimalStorageSpace());
+            else
+                quizText.setText("Sorry, that is incorrect, you should store "+quizFood.getName()+" in the "+quizFood.getOptimalStorageSpace());
     }
 
     private View.OnClickListener legendButtonListener= new View.OnClickListener() {
