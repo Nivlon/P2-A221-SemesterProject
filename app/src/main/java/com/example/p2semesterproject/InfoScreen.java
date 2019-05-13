@@ -48,11 +48,11 @@ public class InfoScreen extends AppCompatActivity {
                     foodImage.setX(0);
                     break;
                 case "Bottom Shelf":
-                    foodImage.setY(200);
+                    foodImage.setY(-120);
                     foodImage.setX(-20);
                     break;
                 case "Top Shelf":
-                    foodImage.setY(-250);
+                    foodImage.setY(-240);
                     foodImage.setX(-20);
                     break;
                 default:

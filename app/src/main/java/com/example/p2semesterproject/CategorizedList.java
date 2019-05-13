@@ -68,7 +68,7 @@ public class CategorizedList extends AppCompatActivity {
                             new FoodObject("Eggs", res.getDrawable(R.drawable.egg), "Fridge","21-28","If you are only using either the egg yolk or the egg white and want to store the leftover, expect that the yolk can last 1 day and the whites 2-3 days in the fridge.","Top Shelf"),
                             new FoodObject("Milk", res.getDrawable(R.drawable.milk), "Fridge","7","","Top Shelf"),
                             new FoodObject("Yogurt", res.getDrawable(R.drawable.yogurt), "Fridge","28-31","","Top Shelf"),
-                            new FoodObject("Butter", res.getDrawable(R.drawable.butter), "Fridge","89-92","Can be kept in the freezer for 6-9 months."),
+                            new FoodObject("Butter", res.getDrawable(R.drawable.butter), "Fridge","89-92","Can be kept in the freezer for 6-9 months.","Top Shelf"),
                     },
                     //Baked goods
                     {
@@ -78,8 +78,8 @@ public class CategorizedList extends AppCompatActivity {
                     //Meat
                     {
                             new FoodObject("Beef", res.getDrawable(R.drawable.beef), "Fridge","3-5","Leave in store-bought packaging when stored in the fridge, if you need to reseal the meat, put it in an airtight plastic bag with as little air as possible. It will last about a day like this. When storing in the freezer, rewrap it in airtight freezer bags. Can be kept in the freezer for 4-12 months.","Bottom Shelf"),
-                            new FoodObject("Chicken", res.getDrawable(R.drawable.chicken), "Fridge","1-2","Leave in store-bought packaging when stored in the fridge, if you need to reseal the meat, put it in an airtight plastic bag with as little air as possible. It will last about a day like this. When storing in the freezer, rewrap it in airtight freezer bags. Can be kept in the freezer for up to 9 months.","Bottom Shelf"),
-                            new FoodObject("Fish", res.getDrawable(R.drawable.fish), "Fridge","3-5","Can be kept in the freezer for 6-9 months.","Top Shelf"),
+                            new FoodObject("Chicken", res.getDrawable(R.drawable.chicken), "Fridge","1-2","Leave in store-bought packaging when stored in the fridge, if you need to reseal the meat, put it in an airtight plastic bag with as little air as possible then It will last about a day. When storing in the freezer, rewrap it in airtight freezer bags. Can be kept in the freezer for up to 9 months.","Bottom Shelf"),
+                            new FoodObject("Fish", res.getDrawable(R.drawable.fish), "Fridge","3-5","Can be kept in the freezer for 6-9 months.","Bottom Shelf"),
                             new FoodObject("Pork", res.getDrawable(R.drawable.pork), "Fridge","3-5","Leave in store-bought packaging when stored in the fridge, if you need to reseal the meat, put it in an airtight plastic bag with as little air as possible. It will last about a day like this. When storing in the freezer, rewrap it in airtight freezer bags. Can be kept in the freezer for 4-12 months.","Bottom Shelf")
                     },
                     //Vegetables
