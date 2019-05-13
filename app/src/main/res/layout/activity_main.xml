@@ -23,7 +23,7 @@
 
     <Button
         android:id="@+id/veg_category"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:background="#58A791"
@@ -40,7 +40,7 @@
 
     <Button
         android:id="@+id/fruit_category"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:background="#58A791"
@@ -57,7 +57,7 @@
 
     <Button
         android:id="@+id/dairy_category"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:background="#58A791"
@@ -74,7 +74,7 @@
 
     <Button
         android:id="@+id/meat_category"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:background="#58A791"
@@ -91,7 +91,7 @@
 
     <Button
         android:id="@+id/baked_category"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:background="#58A791"
