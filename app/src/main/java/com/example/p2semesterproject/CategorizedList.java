@@ -56,7 +56,7 @@ public class CategorizedList extends AppCompatActivity {
             foodData = new FoodObject[][]{
                     //Fruit
                     {
-                            new FoodObject("Apples", res.getDrawable(R.drawable.apple), "Fridge","7-28","Store in room temperature until ripe. Leave unwashed and in plastic bags.","Crisper"),
+                            new FoodObject("Apples", res.getDrawable(R.drawable.apple), "Fridge","7-28","Store in room temperature until ripe. Leave unwashed and in plastic bags. They are best kept at room temperature until ripe. When ripe they should be stored in the crisper. Store them separately from other items as they secrete a gas that accelerates the ripening process.","Crisper"),
                             new FoodObject("Bananas", res.getDrawable(R.drawable.banana), "Counter","2-3","Should be hung up and kept in a cool place until ripe. Do not break them apart or put them in the fridge as they can get chill injury. Store them separately from other items as they secrete a gas that accelerates the ripening process."),
                             new FoodObject("Grapes", res.getDrawable(R.drawable.grape), "Fridge","7","","Crisper"),
                             new FoodObject("Kiwi", res.getDrawable(R.drawable.kiwi), "Fridge", "3-4","Store in room temperature until ripe. "),

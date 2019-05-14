@@ -144,21 +144,21 @@ public class MainActivity extends AppCompatActivity {
         }
         if (buttonText == food.getOptimalStorageSpace()) { //Compares the storage space of the button to the optimal storage space of the food item
             if (food.getOptimalStorageSpace() == "Counter") //Writes 'on' or 'in' based on if it's stored in counter or not
-                quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " day(s) on the " + food.getOptimalStorageSpace());
+                quizText.setText("\nThat's right! It can be stored for " + food.getStorageTime() + " day(s) on the " + food.getOptimalStorageSpace()+"\n \nDid you know that 30% of all food waste happens in households? Great job on trying to do better!");
             else
-                quizText.setText("That is correct it can be stored for " + food.getStorageTime() + " day(s) in the " + food.getOptimalStorageSpace());
+                quizText.setText("\nThat's right! It can be stored for " + food.getStorageTime() + " day(s) in the " + food.getOptimalStorageSpace()+"\n \nDid you know that 30% of all food waste happens in households? Great job on trying to do better!");
         Handler handler = new Handler(); //We need this for delaying the quiz disappearing
         handler.postDelayed(new Runnable() { //Makes the quiz disappear after 4.2 seconds
                 public void run() {
                     quizView.setVisibility(View.INVISIBLE);
                 }
-            }, 4200);
+            }, 8000);
         }
         else //What it says if they answer wrong
             if (food.getOptimalStorageSpace() == "Counter")
-                quizText.setText("Sorry, that is incorrect, you should store "+quizFood.getName()+" on the "+quizFood.getOptimalStorageSpace());
+                quizText.setText("Sorry, that is incorrect, you should store "+quizFood.getName()+" on the "+quizFood.getOptimalStorageSpace()+".");
             else
-                quizText.setText("Sorry, that is incorrect, you should store "+quizFood.getName()+" in the "+quizFood.getOptimalStorageSpace());
+                quizText.setText("Sorry, that is incorrect, you should store "+quizFood.getName()+" in the "+quizFood.getOptimalStorageSpace()+".");
     }
 
     //Legend button OnClick Listener (this defines what happens when you click on it)
