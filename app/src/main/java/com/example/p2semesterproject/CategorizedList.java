@@ -1,12 +1,12 @@
 package com.example.p2semesterproject;
 
+//Importing libraries
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
@@ -15,37 +15,43 @@ import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
 
-@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP) //Version requirement for android because of some functionality
 public class CategorizedList extends AppCompatActivity {
 
+    //Variable for importing images
     public static Resources res;
 
+    //Which category is selected
     private static int categoryIndex;
 
+    //Variables for the list layout (called a recyclerView)
     private RecyclerView recyclerView;
     private FoodListAdapter listAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    //The variable that stores the data about all of the foods
     public static FoodObject[][] foodData;
     public static boolean foodDataCreated=false;
 
+    //Variables for the pin buttons
     public static boolean isPinPress;
     public static int pinYPosition=800;
 
 
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP) //Version requirement
+    //This function is called when the activity is entered
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categorized_list);
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-        res = getResources();
+        setContentView(R.layout.activity_categorized_list); //Sets the screen to show the list view
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true); //Allowing for vector drawable images
+        res = getResources(); //Resources needed to import the images
+        //Setting icons
         FoodObject.setStorageSpaceIcons(new Drawable[]{res.getDrawable(R.drawable.fridge1),res.getDrawable(R.drawable.iceicebaby),res.getDrawable(R.drawable.counter)});
         FoodObject.setStorageInfoScreenIcons(new Drawable[]{res.getDrawable(R.drawable.open_fridge),res.getDrawable(R.drawable.iceicebaby),res.getDrawable(R.drawable.counter)});
         FoodObject.setPinsIcons(new Drawable[]{res.getDrawable(R.drawable.pinned),res.getDrawable(R.drawable.unpinned)});
+        //Creating the food data
         if(!foodDataCreated) {
             foodData = new FoodObject[][]{
                     //Fruit
@@ -98,13 +104,15 @@ public class CategorizedList extends AppCompatActivity {
                     }};
             foodDataCreated=true;
         }
-
+        //Getting references
         recyclerView=findViewById(R.id.foodList);
         recyclerView.setHasFixedSize(true); //for performance (I don't know what it does)
         layoutManager = new LinearLayoutManager(this);
+        //Creating the list
         recyclerView.setLayoutManager(layoutManager);
         listAdapter =new FoodListAdapter(foodData[categoryIndex]);
         recyclerView.setAdapter(listAdapter);
+        //Adding an onTouchListener to the list that allows for
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
 
             @Override
