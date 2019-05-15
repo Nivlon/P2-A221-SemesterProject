@@ -112,18 +112,22 @@ public class CategorizedList extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         listAdapter =new FoodListAdapter(foodData[categoryIndex]);
         recyclerView.setAdapter(listAdapter);
-        //Adding an onTouchListener to the list that allows for
+        //Adding an onTouchListener to the list that allows for pins and info screen presses to work
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
 
             @Override
             public void onClick(View view, int position) {
+                //Checks if it is a pin or info screen press
                 if(isPinPress) {
+                    //Pins it
                     foodData[categoryIndex][position].Pin();
+                    //Reorders Food based on pins
                     orderPinnedList();
-                } else {
-                    startActivity(new Intent(getApplicationContext(), InfoScreen.class));
-                    InfoScreen.setFoodItem(foodData[categoryIndex][position]);
+                } else { //If it's an info screen press
+                    startActivity(new Intent(getApplicationContext(), InfoScreen.class)); //Go to info screen activity
+                    InfoScreen.setFoodItem(foodData[categoryIndex][position]); //Set which food the info screen should display
                 }
+                //Readapts the food data so it shows the new pinned order
                 listAdapter =new FoodListAdapter(foodData[categoryIndex]);
                 recyclerView.setAdapter(listAdapter);
 
@@ -132,10 +136,12 @@ public class CategorizedList extends AppCompatActivity {
 
     }
 
+    //Sets which category the list activity should display
     public static void setCategoryIndex(int _categoryIndex) {
         categoryIndex = _categoryIndex;
     }
 
+    //Places pinned items at the front of the list
     public static void orderPinnedList() {
         FoodObject[] tempFoodData=new FoodObject[foodData[categoryIndex].length];
         int tempIndex=0;
@@ -154,6 +160,7 @@ public class CategorizedList extends AppCompatActivity {
         foodData[categoryIndex]=tempFoodData;
     }
 
+    //The main activity gets the pinned list for the quiz through this function
     public static FoodObject[] getPinnedList() {
         int pinnedCount=0;
         for(int i=0;i<foodData[categoryIndex].length;i++) {
@@ -175,7 +182,7 @@ public class CategorizedList extends AppCompatActivity {
 
     }
 
-
+    //This describes the Click Listener that we assign to the list view
     public interface ClickListener {
         void onClick(View view, int position);
     }
@@ -195,6 +202,7 @@ public class CategorizedList extends AppCompatActivity {
             });
         }
 
+        //Checks if the pin or the rest of the card has been pressed
         @Override
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
             isPinPress=e.getX()>pinYPosition;
@@ -204,15 +212,12 @@ public class CategorizedList extends AppCompatActivity {
             }
             return false;
         }
-
+        //These are just necessities
         @Override
         public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
         }
-
         @Override
         public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
         }
     }
 

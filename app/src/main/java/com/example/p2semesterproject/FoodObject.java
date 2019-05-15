@@ -4,11 +4,13 @@ import android.graphics.drawable.Drawable;
 
 public class FoodObject {
 
+    //Variables specific to class
     private static String[] storageSpaces={"Fridge","Freezer","Counter"};
     private static Drawable[] storageSpaceIcons;
     private static Drawable[] storageSpaceInfScreenIcons;
     private static Drawable[] pinsIcons;
 
+    //Variables specific to each food item
     private String name;
     private Drawable foodIcon;
     private int optimalStorageIndex;
@@ -18,34 +20,7 @@ public class FoodObject {
     private boolean isStarred=false;
     private String fridgePosition="";
 
-    public String getFridgePosition() {
-        return fridgePosition;
-    }
-
-    public boolean isStarred() {
-        return isStarred;
-    }
-
-    public static void setPinsIcons(Drawable[] _pinsIcons) {
-        pinsIcons = _pinsIcons;
-    }
-
-
-    public static Drawable[] getPinsIcons() {
-        return pinsIcons;
-    }
-
-    FoodObject(String _name, Drawable _foodIcon, String _optimalStorageString) {
-        name=_name;
-        foodIcon=_foodIcon;
-        for(int i=0;i<storageSpaces.length;i++) {
-            if(storageSpaces[i].equals(_optimalStorageString)) {
-                optimalStorageIndex=i;
-                break;
-            }
-        }
-    }
-
+    //Constructors
     FoodObject(String _name, Drawable _foodIcon, String _optimalStorageString, String _storageTime) {
         name=_name;
         foodIcon=_foodIcon;
@@ -88,6 +63,22 @@ public class FoodObject {
         if(Description!=""){isStarred=true;}
     }
 
+    //Setters, getters and additional functions
+    public String getFridgePosition() {
+        return fridgePosition;
+    }
+
+    public boolean isStarred() {
+        return isStarred;
+    }
+
+    public static void setPinsIcons(Drawable[] _pinsIcons) {
+        pinsIcons = _pinsIcons;
+    }
+
+    public static Drawable[] getPinsIcons() {
+        return pinsIcons;
+    }
 
     public String getName() { return name; }
 

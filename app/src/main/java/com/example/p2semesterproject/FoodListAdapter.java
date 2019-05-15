@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyViewHolder> {
 
+    //Holds the food object list that is displayed
     private FoodObject[] foodData;
 
     // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name;
@@ -26,7 +26,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            // get the reference of item view's
+            // get the reference of item views
             name = itemView.findViewById(R.id.name);
             imageOne = itemView.findViewById(R.id.foodImage);
             storageImage = itemView.findViewById(R.id.storageImage);
@@ -39,12 +39,12 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
 
 
 
-    // Provide a suitable constructor (depends on the kind of dataset)
+    // The constructor
     public FoodListAdapter(FoodObject[] _foodData) {
         foodData = _foodData;
     }
 
-    // Create new views (invoked by the layout manager)
+    // Create new views
     @NonNull
     @Override
     public FoodListAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -53,11 +53,10 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
         return new MyViewHolder(v);
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
+    // Replace the contents of a view
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
+        //Puts the data of the food item in their corresponding places
         holder.name.setText(foodData[position].getName() + ((foodData[position].isStarred()) ? "*" : ""));
         holder.imageOne.setImageDrawable(foodData[position].getFoodIcon());
         holder.storageImage.setImageDrawable(foodData[position].getOptimalStorageIcon());
@@ -65,7 +64,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.MyView
         holder.pinButton.setImageDrawable((foodData[position].isPinned()) ? FoodObject.getPinsIcons()[0] : FoodObject.getPinsIcons()[1]);
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
+    // Returns the size of the list
     @Override
     public int getItemCount() {
         return foodData.length;
