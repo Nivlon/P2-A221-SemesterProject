@@ -38,20 +38,20 @@ public class MainActivity extends AppCompatActivity {
         legendOpenImg=getResources().getDrawable(R.drawable.iconinformationopen); //Gets legend pictures
         legendClosedImg=getResources().getDrawable(R.drawable.iconinformationclosed);
         quizView=findViewById(R.id.quiz_view); //Gets reference for items things on screen (so we can modify them in code
-        quizText = findViewById(R.id.textView2);
+        quizText = findViewById(R.id.quizText);
         theLegendImage = findViewById(R.id.thelegend27);
         theLegendButton = findViewById(R.id.legend_button);
         theLegendButton.setOnClickListener(legendButtonListener); //Adds listener (functionality) to the legend button
         theLegendImage.setImageDrawable(legendClosedImg); //Sets legend image picture
         // Quiz buttons (getting reference for them)
-        Button option_1 = findViewById(R.id.button);
-        Button option_2 = findViewById(R.id.button2);
-        Button option_3 = findViewById(R.id.button3);
+        Button quizOption_1 = findViewById(R.id.fridgeButton);
+        Button quizOption_2 = findViewById(R.id.freezerButton);
+        Button quizOption_3 = findViewById(R.id.counterButton);
 
         // Adding onClickListeners (functionality) to quiz buttons
-        option_1.setOnClickListener(quizButtonListener);
-        option_2.setOnClickListener(quizButtonListener);
-        option_3.setOnClickListener(quizButtonListener);
+        quizOption_1.setOnClickListener(quizButtonListener);
+        quizOption_2.setOnClickListener(quizButtonListener);
+        quizOption_3.setOnClickListener(quizButtonListener);
 
         // Getting reference for category buttons
         Button fruitBut = findViewById(R.id.fruit_category);
@@ -70,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP) //This is just required
     //This function runs when you return to this screen from the list screen
-    @Override
-    protected void onResume() {
+    @Override //Override means that we are making our own version of the superclass's function
+    protected void onResume() { //Protected means public to objects of the same class or subclasses of the same class
         super.onResume();
-        if (CategorizedList.foodDataCreated) { //This outer if is to avoid asking for the food data before we create it in the categorizedList
+        if (CategorizedList.foodDataCreated) { //This outer "if" is to avoid asking for the food data before we create it in the categorizedList
             if (CategorizedList.getPinnedList() != null) { //If there are pinned items in the last visited category
                 FoodObject randomPinnedFood=CategorizedList.getPinnedList()[new Random().nextInt(CategorizedList.getPinnedList().length)]; //Pick one of them
                 quizGenerator(randomPinnedFood); //And generate a quiz based on it
@@ -132,21 +132,23 @@ public class MainActivity extends AppCompatActivity {
     public static void quiz(View v, FoodObject food) {
         String buttonText="";
         switch (v.getId()) { //Gets the storage space the quiz button represents
-            case R.id.button:
+            case R.id.fridgeButton:
                 buttonText = "Fridge";
                 break;
-            case R.id.button2:
+            case R.id.freezerButton:
                 buttonText = "Freezer";
                 break;
-            case R.id.button3:
+            case R.id.counterButton:
                 buttonText = "Counter";
                 break;
         }
         if (buttonText == food.getOptimalStorageSpace()) { //Compares the storage space of the button to the optimal storage space of the food item
             if (food.getOptimalStorageSpace() == "Counter") //Writes 'on' or 'in' based on if it's stored in counter or not
-                quizText.setText("\nThat's right! It can be stored for " + food.getStorageTime() + " day(s) on the " + food.getOptimalStorageSpace()+"\n \nDid you know that 30% of all food waste happens in households? Great job on trying to do better!");
+                quizText.setText("\nThat's right! It can be stored for " + food.getStorageTime() + " day(s) on the " +
+                        food.getOptimalStorageSpace()+"\n \nDid you know that 30% of all food waste happens in households? Great job on trying to do better!");
             else
-                quizText.setText("\nThat's right! It can be stored for " + food.getStorageTime() + " day(s) in the " + food.getOptimalStorageSpace()+"\n \nDid you know that 30% of all food waste happens in households? Great job on trying to do better!");
+                quizText.setText("\nThat's right! It can be stored for " + food.getStorageTime() + " day(s) in the " +
+                        food.getOptimalStorageSpace()+"\n \nDid you know that 30% of all food waste happens in households? Great job on trying to do better!");
         Handler handler = new Handler(); //We need this for delaying the quiz disappearing
         handler.postDelayed(new Runnable() { //Makes the quiz disappear after 4.2 seconds
                 public void run() {
@@ -165,9 +167,9 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener legendButtonListener= new View.OnClickListener() {
         public void onClick(View v) {
             isLegendOn=!isLegendOn; //Toggles it being on/off
-            if(isLegendOn) { //Draws it if its on
+            if(isLegendOn) { //Draws the opened image if it's on
                 theLegendImage.setImageDrawable(legendOpenImg);
-            } else { //Doesn't if it's off
+            } else { //Draws the closed image if it's off
                 theLegendImage.setImageDrawable(legendClosedImg);
             }
         }

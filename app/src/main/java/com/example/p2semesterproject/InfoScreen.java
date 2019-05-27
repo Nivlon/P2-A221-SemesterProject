@@ -62,7 +62,6 @@ public class InfoScreen extends AppCompatActivity {
                 default:
                     break;
             }
-
         }
     }
 

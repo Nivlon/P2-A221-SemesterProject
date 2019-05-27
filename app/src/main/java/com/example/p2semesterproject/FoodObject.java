@@ -60,7 +60,7 @@ public class FoodObject {
         storageTime=_storageTime;
         Description=_description;
         fridgePosition=_fridgePosition;
-        if(Description!=""){isStarred=true;}
+        if(Description!="") {isStarred=true;}
     }
 
     //Setters, getters and additional functions

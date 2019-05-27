@@ -127,7 +127,7 @@
         app:layout_constraintVertical_bias="0.015">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/quizText"
             android:layout_width="match_parent"
             android:layout_height="155dp"
             android:gravity="center"
@@ -136,7 +136,7 @@
             android:visibility="visible" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/fridgeButton"
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_margin="12dp"
@@ -149,7 +149,7 @@
             android:typeface="sans" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/freezerButton"
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_margin="12dp"
@@ -164,7 +164,7 @@
             android:typeface="sans" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/counterButton"
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_margin="12dp"
